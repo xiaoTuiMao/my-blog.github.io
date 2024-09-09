@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>前端早读精选 - 前端年度盘点与未来展望、霸榜 GitHub Trending 的12306抢票工具第六期 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="来自腾讯的年度盘点与未来展望、深度剖析正则原理、新的前端图片格式 -avif、以及css与前端轮询小技巧。工具方面，12306抢票、前端代码查重工具、google 网页索引工具与bun-shell"><meta property="og:type" content="blog"><meta property="og:title" content="前端早读精选 - 前端年度盘点与未来展望、霸榜 GitHub Trending 的12306抢票工具第六期"><meta property="og:url" content="https://xiaotuimao.github.io/my-blog.github.io/2024/02/02/2024/0x20240202/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="来自腾讯的年度盘点与未来展望、深度剖析正则原理、新的前端图片格式 -avif、以及css与前端轮询小技巧。工具方面，12306抢票、前端代码查重工具、google 网页索引工具与bun-shell"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://xiaotuimao.github.io/images/post-header-bg.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240202/1.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240202/2.png"><meta property="article:published_time" content="2024-02-02T00:00:00.000Z"><meta property="article:modified_time" content="2024-09-08T03:45:47.568Z"><meta property="article:author" content="xiaoTuiMao"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaotuimao.github.io/images/post-header-bg.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaotuimao.github.io/my-blog.github.io/2024/02/02/2024/0x20240202/"},"headline":"前端早读精选 - 前端年度盘点与未来展望、霸榜 GitHub Trending 的12306抢票工具第六期","image":["https://xiaotuimao.github.io/images/post-header-bg.png","https://xiaotuimao.github.io/images/20240202/1.png","https://xiaotuimao.github.io/images/20240202/2.png"],"datePublished":"2024-02-02T00:00:00.000Z","dateModified":"2024-09-08T03:45:47.568Z","author":{"@type":"Person","name":"xiaoTuiMao"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://xiaotuimao.github.io/img/logo.svg"}},"description":"来自腾讯的年度盘点与未来展望、深度剖析正则原理、新的前端图片格式 -avif、以及css与前端轮询小技巧。工具方面，12306抢票、前端代码查重工具、google 网页索引工具与bun-shell"}</script><link rel="canonical" href="https://xiaotuimao.github.io/my-blog.github.io/2024/02/02/2024/0x20240202/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-02-02T00:00:00.000Z" title="2/2/2024, 8:00:00 AM">2024-02-02</time>发表</span><span class="level-item"><time dateTime="2024-09-08T03:45:47.568Z" title="9/8/2024, 11:45:47 AM">2024-09-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></span><span class="level-item">16 分钟读完 (大约2445个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">前端早读精选 - 前端年度盘点与未来展望、霸榜 GitHub Trending 的12306抢票工具第六期</h1><div class="content"><p><img src="/../../images/post-header-bg.png" alt="file"><br>探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。文章方面，本期为大家带来，来自腾讯的2023前端年度技术盘点与2024技术展望、深度剖析正则原理、新的前端图片格式 -avif、以及css与前端轮训小技巧。工具方面，带来近期霸榜 GitHub Trending 的12306抢票、前端代码查重工具、google 网页索引工具与对shell更友好的bun-shell。话不多说，详细内容请大家查阅。如果觉得有收获，动动大拇指点个赞，以示鼓励！</p>
+<h3 id="文章推荐"><a href="#文章推荐" class="headerlink" title="文章推荐"></a>文章推荐</h3><h4 id="穿越时空：2023年前端技术盘点与2024年技术展望"><a href="#穿越时空：2023年前端技术盘点与2024年技术展望" class="headerlink" title="穿越时空：2023年前端技术盘点与2024年技术展望"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/LiygBJqMN8U_vSpAjxMibQ">穿越时空：2023年前端技术盘点与2024年技术展望</a></h4><blockquote>
+<p> 2023 年在前端行业发生的一些重要事情：</p>
+<ol>
+<li>语言与标准：CSS、ES 和 TS 语法持续完善，社区竟现反 TS 声音</li>
+<li>前端框架：主流框架持续完善，黑马 Htmx 与 Qwik 异军突起</li>
+<li>前端基础建设：多种语言助力前端基建的持续发展</li>
+<li> Chrome 浏览器：加强对用户数据安全的保护</li>
+<li>低代码：持续完善的低代码引擎开源社区</li>
+<li>D2C：C2D2C 亮相，大模型赋能 D2C 未来可期</li>
+<li>大模型：大模型应用能力持续完善与落地</li>
+<li>跨端：鸿蒙应用开发为跨端带来新变化</li>
+<li> WASM: 未来将与更多语言和场景结合</li>
+<li>音视频：传统编解码与 AI 编解码并驾齐驱</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>对于未来技术展望</p>
+<ol>
+<li>大模型持续为前端赋能</li>
+<li>拥抱 TypeScript 是前端语言与标准的主旋律</li>
+<li>探索更好服务端渲染是前端框架的大势所趋</li>
+<li>Rust 是前端基础建设的未来</li>
+<li>鸿蒙入局，跨端三分天下格局指日可待</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>TypeScript 依然是前端语言与标准，虽然社区最近对于 TS 的看法各不一样，但是从目前的笔者负责的业务场景看，TS 依然是最佳选择。<br>关于 C2D2C，笔者也抱有期待。通过前端标准化组件与设计标准结合，设计师基于现有组件库输出设计稿，前端研发拿到对应设计稿再转换为可执行代码。由于设计稿和代码使用的是同一套设计系统，设计稿中的组件和最终代码中的组件是一一映射的关系，因此无需进行标注就可以实现组件的精准识别。同时在代码的二次可发与可读性上也会得到很大改善。<br>强势崛起的Qwik也是一个值得关注的框架：号称历史上第一个 O(1) 的前端 SSR 框架。如果你对其 SSR 性能感兴趣，可以通过这篇文章了解。👉🏻<a target="_blank" rel="noopener" href="https://juejin.cn/post/7186161640121827387">点击查看</a><br>👉🏻<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/LiygBJqMN8U_vSpAjxMibQ">阅读全文了解更多内容</a></p>
+</blockquote>
+<h4 id="为什么-2024-年应该使用-AVIF-而不是-JPEG、WebP、PNG-和-GIF"><a href="#为什么-2024-年应该使用-AVIF-而不是-JPEG、WebP、PNG-和-GIF" class="headerlink" title="为什么 2024 年应该使用 AVIF 而不是 JPEG、WebP、PNG 和 GIF"></a><a target="_blank" rel="noopener" href="https://medium.com/@julienetienne/why-you-should-use-avif-over-jpeg-webp-png-and-gif-in-2024-5603ac9d8781">为什么 2024 年应该使用 AVIF 而不是 JPEG、WebP、PNG 和 GIF</a></h4><blockquote>
+<p>avif 对比传统的图片格式，在压缩效率、颜色深度有着明显的优势，但在编解码的效率上相对低一些。不过在新的浏览器环境下尝试 avif 未尝不是一个好的选择。<br><img src="/../../images/20240202/1.png" alt="Alt text"><br>附：avif 与 webp 对比</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center">特性</th>
+<th>AVIF</th>
+<th>WebP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">压缩效率</td>
+<td>高（更小的文件大小，保持高质量）</td>
+<td>较高但通常不如AVIF</td>
+</tr>
+<tr>
+<td align="center">图像质量</td>
+<td>支持更广泛的颜色范围和动态范围，适合高分辨率图像</td>
+<td>良好，但在颜色和动态范围上不如AVIF</td>
+</tr>
+<tr>
+<td align="center">浏览器兼容性</td>
+<td>相对较新，支持不如WebP广泛</td>
+<td>几乎所有现代浏览器支持</td>
+</tr>
+<tr>
+<td align="center">编解码速度</td>
+<td>编码较慢</td>
+<td>编码和解码速度较快</td>
+</tr>
+<tr>
+<td align="center">功能支持</td>
+<td>支持高动态范围（HDR）和透明度</td>
+<td>支持透明度，有损和无损压缩，但在HDR上支持不足</td>
+</tr>
+<tr>
+<td align="center">应用场景</td>
+<td>适合对图像质量有高要求的应用</td>
+<td>适合需要快速处理和广泛兼容性的应用</td>
+</tr>
+</tbody></table>
+<h4 id="浅谈正则表达式——从原理到实战"><a href="#浅谈正则表达式——从原理到实战" class="headerlink" title="浅谈正则表达式——从原理到实战"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7294425916548317199">浅谈正则表达式——从原理到实战</a></h4><blockquote>
+<p>这篇文章是关于正则表达式的深入讨论，从基本语法到实际应用全面介绍了正则表达式的各个方面。内容包括正则表达式的组成、不同类型的字符和匹配模式、贪婪与非贪婪匹配的概念以及它们在性能上的影响。文章还探讨了捕获组、匹配模式和前瞻&#x2F;后顾断言的概念。最后，讨论了正则表达式的底层原理，特别是非确定性有限自动机（NFA）和确定性有限自动机（DFA）在处理正则表达式时的差异。想要深入了解正则的同学，<a target="_blank" rel="noopener" href="https://juejin.cn/post/7294425916548317199">点击阅读全文</a></p>
+</blockquote>
+<h4 id="JavaScript-WTF-Why-does-every-return-true-for-empty-arrays"><a href="#JavaScript-WTF-Why-does-every-return-true-for-empty-arrays" class="headerlink" title="JavaScript WTF: Why does every() return true for empty arrays?"></a><a target="_blank" rel="noopener" href="https://humanwhocodes.com/blog/2023/09/javascript-wtf-why-does-every-return-true-for-empty-array/">JavaScript WTF: Why does every() return true for empty arrays?</a></h4><blockquote>
+<p>文章从数学的角度探讨为，什么当数组为空数组时，<code>[].every(item =&gt; true)</code> 会返回 <code>true</code>, <code>[].some(item =&gt; true)</code>，会返回 <code>false</code>，这一表现是否符合你的直觉。</p>
+<ul>
+<li><code>every</code>: <code>It is vacuously true that all elements of the empty set satisfy any given condition</code></li>
+<li><code>some</code>: <code>The “exists” quantifier states that the result is false for any empty set.</code></li>
+</ul>
+</blockquote>
+<h4 id="the-surprising-things-that-css-can-animate"><a href="#the-surprising-things-that-css-can-animate" class="headerlink" title="the-surprising-things-that-css-can-animate"></a><a target="_blank" rel="noopener" href="https://codersblock.com/blog/the-surprising-things-that-css-can-animate">the-surprising-things-that-css-can-animate</a></h4><blockquote>
+<p>当您想到动画 CSS 属性时，您会想到哪些？文章列举了一些通常与动画无关的属性，用 CSS 可以实现的一些意想不到的动画效果，以及通过动画效果可以实现的一些巧妙的效果来实现动画。</p>
+</blockquote>
+<h4 id="一个健壮的前端轮询"><a href="#一个健壮的前端轮询" class="headerlink" title="一个健壮的前端轮询"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/6AqmZJUwPHrbyNMUejNnCw">一个健壮的前端轮询</a></h4><blockquote>
+<p>文章讨论了在不使用websocket做服务端推送的情况下，如何写出一个健壮的前端轮询。文章提供了一些常见的前端轮询的应用场景以及可能遇到的问题，并逐一给到了解决方案。</p>
+<p>笔者从文章中衍生一个场景，当列表筛选时，每次筛选项的变化，都需要前端重新请求。但是前端筛选项 UI 变化不依赖 API 数据返回，如果此时用户操作过快，同时存在多个筛选请求时，也需要考虑到请求废弃的问题，同样可以借助文章中的思路去解决。</p>
+</blockquote>
+<h3 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h3><h4 id="py12306"><a href="#py12306" class="headerlink" title="py12306"></a><a target="_blank" rel="noopener" href="https://github.com/pjialin/py12306">py12306</a></h4><blockquote>
+<p>还没买到票的同学看过来！一款12306 购票助手，支持集群，多账号，多任务购票以及 Web 页面管理。支持本地部署，快来试试吧！</p>
+</blockquote>
+<h4 id="前端代码重复度检测"><a href="#前端代码重复度检测" class="headerlink" title="前端代码重复度检测"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7288699185981095988">前端代码重复度检测</a></h4><blockquote>
+<p>听说过论文查重，那阁下是否听说过代码查重？在前端开发中，代码的重复度是一个常见的问题。重复的代码不仅增加了代码的维护成本，还可能导致程序的低效运行。为了解决这个问题，有许多工具和技术被用来检测和消除代码重复。其中一个被广泛使用的工具就是<code>jscpd</code>。</p>
+</blockquote>
+<h4 id="google-indexing-script"><a href="#google-indexing-script" class="headerlink" title="google-indexing-script"></a><a target="_blank" rel="noopener" href="https://github.com/goenning/google-indexing-script">google-indexing-script</a></h4><blockquote>
+<p>使用此脚本可让你的网站在 48 小时内在 Google 上建立索引。无需任何复杂技巧或黑客手段，只需简单的脚本和 Google API 即可。<br>注意：</p>
+<ol>
+<li>脚本并不会帮助你的网站在 Google 上的排名，只会让 Google 知道你的网站存在。</li>
+<li>脚本使用到 Google Indexing API。虽然不能绝对保证每个页面都被索引到，但最近在 2023 年 12 月测试显示有非常高的成功率。<br><img src="/../../images/20240202/2.png" alt="Alt text"></li>
+</ol>
+</blockquote>
+<h4 id="the-bun-shell"><a href="#the-bun-shell" class="headerlink" title="the-bun-shell"></a><a target="_blank" rel="noopener" href="https://bun.sh/blog/the-bun-shell">the-bun-shell</a></h4><blockquote>
+<p><code>bun-shell</code> 提供性能更优，操作更简洁的 shell 集成命令，同时也解决了在 JS 中跨平台运行的兼容性问题</p>
+</blockquote>
+<h3 id="更多推荐"><a href="#更多推荐" class="headerlink" title="更多推荐"></a>更多推荐</h3><h4 id="高德地图官方首度揭秘：红绿灯倒计时功能是如何实现的？"><a href="#高德地图官方首度揭秘：红绿灯倒计时功能是如何实现的？" class="headerlink" title="高德地图官方首度揭秘：红绿灯倒计时功能是如何实现的？"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/3_LNM62zoHaJsmvAryujEw">高德地图官方首度揭秘：红绿灯倒计时功能是如何实现的？</a></h4><blockquote>
+<p>近日，高德地图官方发布视频首度揭秘了**“红绿灯倒计时读秒”<strong>功能背后的实现原理，那就是依赖过往车主的</strong>行驶启停规律，运用云端大数据算法<strong>推算出具体红绿灯读秒时间，甚至路口</strong>临时设置移动式红绿灯**，虽然没有接电和接网，但高德地图<strong>依然会显示红绿灯倒计时</strong>状态。<br>笔者曾一度以为高德的红绿灯读秒是接入了交通数据。</p>
+</blockquote>
+<h4 id="GitHub的榜一大佬晒出存款后，大家却想给他捐钱"><a href="#GitHub的榜一大佬晒出存款后，大家却想给他捐钱" class="headerlink" title="GitHub的榜一大佬晒出存款后，大家却想给他捐钱"></a><a target="_blank" rel="noopener" href="https://m.huxiu.com/article/2387934.html?type=text">GitHub的榜一大佬晒出存款后，大家却想给他捐钱</a></h4><blockquote>
+<p>Sindre 是 Github 上拥有最多 Star 的个人。其 Star 个数甚至比阿里巴巴还要多。Sindre 甚至被称为 npm 之神，因为大家用的 npm 包大概率底层直接或间接都依赖了他的软件包。<br>想要了解大佬，👉🏻<a target="_blank" rel="noopener" href="https://m.huxiu.com/article/2387934.html?type=text">点击查看</a></p>
+<p>附：<a target="_blank" rel="noopener" href="https://gitstar-ranking.com/">gitstar-ranking</a></p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>前端早读精选 - 前端年度盘点与未来展望、霸榜 GitHub Trending 的12306抢票工具第六期</p><p><a href="https://xiaotuimao.github.io/my-blog.github.io/2024/02/02/2024/0x20240202/">https://xiaotuimao.github.io/my-blog.github.io/2024/02/02/2024/0x20240202/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>xiaoTuiMao</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-02-02</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://xiaotuimao.vercel.app/" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/02/23/2024/0x20240223/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">前端早读精选 - React 2024 RoadMap、2024 你应该关注的前端框架</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/01/26/2024/0x20240126/"><span class="level-item">前端早读精选 - 第五期</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://xiaotuimao.github.io/my-blog.github.io/2024/02/02/2024/0x20240202/';
+            this.page.identifier = '2024/02/02/2024/0x20240202/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'xiaotuimao-vercel-app' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/avatar.png" alt="xiaoTuiMao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">xiaoTuiMao</p><p class="is-size-6 is-block">want to travel the word</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>anywhere</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/xiaoTuiMao" target="_blank" rel="noopener">关注我</a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/H5-%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">H5 开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/react/"><span class="level-start"><span class="level-item">react</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="level-start"><span class="level-item">微信小程序</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/"><span class="level-start"><span class="level-item">技术周刊</span></span><span class="level-end"><span class="level-item tag">21</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%B5%8B%E8%AF%95/"><span class="level-start"><span class="level-item">端到端测试</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BF%BB%E8%AF%91/"><span class="level-start"><span class="level-item">翻译</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-08T06:18:32.389Z">2024-09-08</time></p><p class="title"><a href="/2024/09/08/base/Popover/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-16T02:57:00.000Z">2024-08-16</time></p><p class="title"><a href="/2024/08/16/2024/0x20240816/">掌握SVG：前端早读精选教你绘制任何图形</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-16T02:57:00.000Z">2024-07-16</time></p><p class="title"><a href="/2024/07/16/2024/0x20240716/">前端早读精选 - setTimeout 带来的内存泄漏风险！</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-25T02:57:00.000Z">2024-06-25</time></p><p class="title"><a href="/2024/06/25/2024/0x20240625/">前端早读精选 - 你应该知道的 10 NodeJS 新功能、React 19 差点拖慢了整个互联网？</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-05T02:57:00.000Z">2024-06-05</time></p><p class="title"><a href="/2024/06/05/2024/0x20240605/">前端早读精选 - 如何为你的开源项目编写文档、5 中 node 版本管理方案对比、react-compiler 介绍与使用</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/05/"><span class="level-start"><span class="level-item">五月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">四月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/02/"><span class="level-start"><span class="level-item">二月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/12/"><span class="level-start"><span class="level-item">十二月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2024 xiaoTuiMao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

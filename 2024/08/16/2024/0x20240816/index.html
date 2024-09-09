@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>掌握SVG：前端早读精选教你绘制任何图形 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。本期带来 SVG 绘制图形全方面指南、全栈网络推送 API 指南、SVG 绘制可视化工具"><meta property="og:type" content="blog"><meta property="og:title" content="掌握SVG：前端早读精选教你绘制任何图形"><meta property="og:url" content="https://xiaotuimao.github.io/my-blog.github.io/2024/08/16/2024/0x20240816/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。本期带来 SVG 绘制图形全方面指南、全栈网络推送 API 指南、SVG 绘制可视化工具"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://xiaotuimao.github.io/images/post-header-bg.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240816/image.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240816/image-1.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240816/image-2.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240816/image-3.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240816/image-4.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240816/image-5.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240816/image-6.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240816/image-7.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240816/image-8.png"><meta property="article:published_time" content="2024-08-16T02:57:00.000Z"><meta property="article:modified_time" content="2024-09-08T05:49:32.629Z"><meta property="article:author" content="xiaoTuiMao"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaotuimao.github.io/images/post-header-bg.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaotuimao.github.io/my-blog.github.io/2024/08/16/2024/0x20240816/"},"headline":"掌握SVG：前端早读精选教你绘制任何图形","image":["https://xiaotuimao.github.io/images/post-header-bg.png","https://xiaotuimao.github.io/images/20240816/image.png","https://xiaotuimao.github.io/images/20240816/image-1.png","https://xiaotuimao.github.io/images/20240816/image-2.png","https://xiaotuimao.github.io/images/20240816/image-3.png","https://xiaotuimao.github.io/images/20240816/image-4.png","https://xiaotuimao.github.io/images/20240816/image-5.png","https://xiaotuimao.github.io/images/20240816/image-6.png","https://xiaotuimao.github.io/images/20240816/image-7.png","https://xiaotuimao.github.io/images/20240816/image-8.png"],"datePublished":"2024-08-16T02:57:00.000Z","dateModified":"2024-09-08T05:49:32.629Z","author":{"@type":"Person","name":"xiaoTuiMao"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://xiaotuimao.github.io/img/logo.svg"}},"description":"探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。本期带来 SVG 绘制图形全方面指南、全栈网络推送 API 指南、SVG 绘制可视化工具"}</script><link rel="canonical" href="https://xiaotuimao.github.io/my-blog.github.io/2024/08/16/2024/0x20240816/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-08-16T02:57:00.000Z" title="8/16/2024, 10:57:00 AM">2024-08-16</time>发表</span><span class="level-item"><time dateTime="2024-09-08T05:49:32.629Z" title="9/8/2024, 1:49:32 PM">2024-09-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></span><span class="level-item">13 分钟读完 (大约1894个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">掌握SVG：前端早读精选教你绘制任何图形</h1><div class="content"><p><img src="/images/post-header-bg.png"></p>
+<blockquote>
+<p>探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。</p>
+<ul>
+<li>**<code>JS 文章推荐</code>**：如何在 <code>SVG</code> 绘制任意图形、<code>NodeJS</code> 实验性 <code>API</code> 支持 <code>Typescript</code>、全栈网络推送 <code>API</code> 指南、如何通过 <code>hack</code> 的方式提升 <code>Lighthouse</code> 评分</li>
+<li>**<code>HTML &amp; CSS 文章推荐</code>**：<code>CSS</code> 新的查询方式 – 容器查询、<code>CSS</code> 锚定语法实践指南</li>
+<li>**<code>工具推荐</code>**：如何利用 <code>cron</code> 在 <code>Linux</code> 中实现定时任务、SVG 绘制可视化工具 – **<code>svg-path-visualizer</code>**、利用 <code>canvas</code> 实现彩带效果 – <strong><code>canvas-confetti</code></strong></li>
+</ul>
+<p><strong>如果觉得有收获，欢迎大家点赞👍🏻订阅</strong></p>
+</blockquote>
+<h3 id="JS-文章推荐"><a href="#JS-文章推荐" class="headerlink" title="JS 文章推荐"></a>JS 文章推荐</h3><h4 id="如何在-SVG-绘制任意图形"><a href="#如何在-SVG-绘制任意图形" class="headerlink" title="如何在 SVG 绘制任意图形"></a><a target="_blank" rel="noopener" href="https://minus-ze.ro/posts/morphing-arbitrary-paths-in-svg/">如何在 SVG 绘制任意图形</a></h4><p>这篇文章讲述了如何在SVG中进行任意路径的变形动画。作者介绍了SVG路径的基本组成和转换方法，特别是如何将不同类型的绘图命令转换为三次贝塞尔曲线，以便进行动画处理。此外，还讨论了如何通过程序匹配不同路径的点数和结构，以实现两个路径之间的平滑变形。并提供了一个交互式示例来展示这些技术如何实际应用于SVG动画中。</p>
+<blockquote>
+<p>衍生阅读：svg 中的动画标签</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>标签</th>
+<th>说明</th>
+<th>使用 GPU&#x2F;CPU</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;animate&gt;</code></td>
+<td>此标签用于基本的属性动画，如改变颜色、大小等</td>
+<td>CPU</td>
+</tr>
+<tr>
+<td><code>&lt;animateColor&gt;</code></td>
+<td>专门用于颜色动画，例如平滑地改变元素的颜色</td>
+<td>CPU</td>
+</tr>
+<tr>
+<td><code>&lt;animateMotion&gt;</code></td>
+<td>允许元素沿着路径移动</td>
+<td>GPU</td>
+</tr>
+<tr>
+<td><code>&lt;animateTransform&gt;</code></td>
+<td>用于动画化变换属性，如旋转、缩放和位移</td>
+<td>GPU</td>
+</tr>
+<tr>
+<td><code>&lt;set&gt;</code></td>
+<td>用于立即设置一个属性值，而不是创建一个动画序列</td>
+<td>CPU</td>
+</tr>
+<tr>
+<td><code>&lt;discard&gt;</code></td>
+<td>虽然不是严格意义上的动画标签，但用于控制元素何时应该被丢弃或停止显示</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<p><img src="/../../images/20240816/image.png"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://minus-ze.ro/posts/morphing-arbitrary-paths-in-svg/">如何在 SVG 绘制任意图形</a></p>
+</blockquote>
+<h4 id="NodeJS-增加对TS支持"><a href="#NodeJS-增加对TS支持" class="headerlink" title="NodeJS 增加对TS支持"></a><a target="_blank" rel="noopener" href="https://socket.dev/blog/node-js-adds-experimental-support-for-typescript">NodeJS 增加对TS支持</a></h4><p>Node.js 添加了对 TypeScript 的实验性支持。初始实现通过设置实验性标志 <code>--experimental-strip-types</code> 来执行 TypeScript 文件。值得注意的是，NodeJS 对 TypeScript 的支持实现上，是将TypeScript 源代码转译为 JavaScript 源代码，并且在转义过程中不进行类型检查，类型将会被丢弃。<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/53725">关联PR</a></p>
+<p><img src="/../../images/20240816/image-1.png"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://socket.dev/blog/node-js-adds-experimental-support-for-typescript">NodeJS 增加对TS支持</a></p>
+</blockquote>
+<h4 id="全栈网络推送-API-指南"><a href="#全栈网络推送-API-指南" class="headerlink" title="全栈网络推送 API 指南"></a><a target="_blank" rel="noopener" href="https://www.bocoup.com/blog/full-stack-web-push-api-guide">全栈网络推送 API 指南</a></h4><p>这篇文章是关于如何在一个基于 <code>remix.run</code>的应用中实现完整的Web推送通知系统。详细介绍了创建一个支持推送通知的全栈Web应用的过程，包括 <code>service worker</code> 的设置、前端和后端的订阅管理，以及如何使用 <code>Web</code> 推送 <code>API</code> 和 <code>service worker API</code> 发送通知。文章包含了完整的开发指南和代码示例，帮助开发者从头开始构建或整合到现有的 <code>Remix</code> 应用中。</p>
+<p><img src="/../../images/20240816/image-2.png"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://www.bocoup.com/blog/full-stack-web-push-api-guide">全栈网络推送 API 指南</a></p>
+</blockquote>
+<h4 id="如何通过-hack-的方式提升-Lighthouse-评分"><a href="#如何通过-hack-的方式提升-Lighthouse-评分" class="headerlink" title="如何通过 hack 的方式提升 Lighthouse 评分"></a><a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2024/06/how-hack-google-lighthouse-scores-2024/">如何通过 hack 的方式提升 Lighthouse 评分</a></h4><p> 文章探讨了 <code>Google Lighthouse</code> 如何计算其性能得分，每个指标在 <code>Lighthouse</code> 中的规则以及影响权重。在规则的基础上如何利用这些信息，通过 <code>Hack</code> 的手段影响 <code>Lighthouse</code> 的评分。</p>
+<blockquote>
+<p>附：指标与权重</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Weighting (%)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Total Blocking Time</td>
+<td>30</td>
+</tr>
+<tr>
+<td>Cumulative Layout Shift</td>
+<td>25</td>
+</tr>
+<tr>
+<td>Largest Contentful Paint</td>
+<td>25</td>
+</tr>
+<tr>
+<td>First Contentful Paint</td>
+<td>10</td>
+</tr>
+<tr>
+<td>Speed Index</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<p><img src="/../../images/20240816/image-3.png"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://www.smashingmagazine.com/2024/06/how-hack-google-lighthouse-scores-2024/">如何通过 hack 的方式提升 Lighthouse 评分</a></p>
+</blockquote>
+<h3 id="CSS-文章推荐"><a href="#CSS-文章推荐" class="headerlink" title="CSS 文章推荐"></a>CSS 文章推荐</h3><h4 id="CSS-容器查询"><a href="#CSS-容器查询" class="headerlink" title="CSS 容器查询"></a><a target="_blank" rel="noopener" href="https://css-tricks.com/css-container-queries/">CSS 容器查询</a></h4><p>CSS 容器查询的主要思想是将一个元素注册为“容器”，并在容器元素满足特定条件时，对其他元素应用样式。例如：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.parent</span> &#123; container-name: hero-banner; container-type: inline-size; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.child</span> &#123; <span class="attribute">display</span>: flex; <span class="attribute">flex-direction</span>: column; &#125;</span><br><span class="line"><span class="comment">/* 当容器宽度大于 60ch 时应用下面的样式 */</span></span><br><span class="line"><span class="keyword">@container</span> hero-banner (<span class="attribute">width</span> &gt; <span class="number">60ch</span>) &#123;</span><br><span class="line">	<span class="selector-class">.child</span> &#123; <span class="attribute">flex-direction</span>: row; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/20240816/image-4.png"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://css-tricks.com/css-container-queries/">CSS 容器查询</a></p>
+</blockquote>
+<h4 id="CSS-锚点定位入门指南"><a href="#CSS-锚点定位入门指南" class="headerlink" title="CSS 锚点定位入门指南"></a><a target="_blank" rel="noopener" href="https://utilitybend.com/blog/lets-hang-an-intro-to-css-anchor-positioning-with-basic-examples/">CSS 锚点定位入门指南</a></h4><p>这篇文章介绍了 CSS 锚点定位（Anchoring API），包括其基本用法和两种主要方法：使用 <code>anchor()</code> 函数和 <code>inset-area</code> 语法。<br>总结如下：</p>
+<ul>
+<li><strong>锚点定位的基本概念</strong>：<ul>
+<li>锚点定位允许将一个元素的定位基于另一个元素，使用 CSS 的 <code>anchor()</code> 函数和 <code>inset-area</code> 语法。</li>
+</ul>
+</li>
+<li><strong><code>anchor-name</code> 和 <code>position-anchor</code> 属性</strong>：<ul>
+<li><code>anchor-name</code> 用于定义一个元素的锚点名称。</li>
+<li><code>position-anchor</code> 用于将另一个元素的定位锚定到指定的 <code>anchor-name</code>。</li>
+</ul>
+</li>
+<li>**回退选项 <code>position-try-options</code>**：<ul>
+<li>提供多个回退选项，确保在视口中尽量保持元素可见。</li>
+<li>选项包括 <code>normal</code>、<code>contain</code> 和 <code>center</code> 等。</li>
+</ul>
+</li>
+<li>**自定义回退选项 <code>@position-try</code>**：<ul>
+<li>可以定义多个尝试定位的策略，指定不同的定位方案和优先级。</li>
+</ul>
+</li>
+</ul>
+<p><strong>注意，当前浏览器支持情况并不友好。</strong></p>
+<p><img src="/../../images/20240816/image-5.png"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://utilitybend.com/blog/lets-hang-an-intro-to-css-anchor-positioning-with-basic-examples/">CSS 锚点定位入门指南</a></p>
+</blockquote>
+<h3 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h3><h4 id="如何利用-cron-在Linux中实现定时任务"><a href="#如何利用-cron-在Linux中实现定时任务" class="headerlink" title="如何利用 cron 在Linux中实现定时任务"></a><a target="_blank" rel="noopener" href="https://linuxiac.com/how-to-use-cron-and-crontab-on-linux/">如何利用 cron 在Linux中实现定时任务</a></h4><p>文章介绍了在Linux系统中如何使用cron和crontab进行任务计划。Cron是一个基于时间的作业调度程序，可用于定期执行命令或脚本。</p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>具体操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>创建cron作业</td>
+<td>使用命令crontab -e编辑用户的crontab文件</td>
+</tr>
+<tr>
+<td>管理cron作业</td>
+<td>列出当前用户的cron作业crontab -l</td>
+</tr>
+<tr>
+<td>删除cron作业</td>
+<td>使用命令crontab -r删除用户的crontab文件</td>
+</tr>
+<tr>
+<td>设置系统级cron作业</td>
+<td>直接编辑&#x2F;etc&#x2F;crontab文件添加作业</td>
+</tr>
+<tr>
+<td>调试cron作业</td>
+<td>检查cron作业日志，确认环境变量和路径设置</td>
+</tr>
+</tbody></table>
+<p><img src="/../../images/20240816/image-6.png"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://linuxiac.com/how-to-use-cron-and-crontab-on-linux/">如何利用 cron 在Linux中实现定时任务</a></p>
+</blockquote>
+<h4 id="svg-path-visualizer"><a href="#svg-path-visualizer" class="headerlink" title="svg-path-visualizer"></a><a target="_blank" rel="noopener" href="https://svg-path-visualizer.netlify.app/">svg-path-visualizer</a></h4><p>将绘制 SVG 的参数可视化，通过参数与绘制结果一一映射解析，帮助你快速了解 SVG path 语法对应的渲染表现。<br><img src="/../../images/20240816/image-7.png"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://svg-path-visualizer.netlify.app/">svg-path-visualizer</a></p>
+</blockquote>
+<h4 id="canvas-confetti"><a href="#canvas-confetti" class="headerlink" title="canvas-confetti"></a><a target="_blank" rel="noopener" href="https://github.com/catdad/canvas-confetti">canvas-confetti</a></h4><p>🎉 浏览器中的高性能彩带动画。<code>confetti</code> 接受一个可选的对象。支持 <code>Promise</code> 时返回 <code>Promise</code>。不支持时返回 <code>null</code>。如果在 <code>confetti</code> 完成之前多次调用它，每次都会返回相同的 Promise。在内部，将重用同一个画布元素，继续现有的动画并添加新的彩屑。每次调用 <code>confetti</code> 返回的 Promise 一旦所有动画完成就会被解析。</p>
+<p><img src="/../../images/20240816/image-8.png"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://github.com/catdad/canvas-confetti">canvas-confetti</a></p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>掌握SVG：前端早读精选教你绘制任何图形</p><p><a href="https://xiaotuimao.github.io/my-blog.github.io/2024/08/16/2024/0x20240816/">https://xiaotuimao.github.io/my-blog.github.io/2024/08/16/2024/0x20240816/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>xiaoTuiMao</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-08-16</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://xiaotuimao.vercel.app/" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/09/08/base/Popover/"><i class="level-item fas fa-chevron-left"></i><span class="level-item"> </span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/07/16/2024/0x20240716/"><span class="level-item">前端早读精选 - setTimeout 带来的内存泄漏风险！</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://xiaotuimao.github.io/my-blog.github.io/2024/08/16/2024/0x20240816/';
+            this.page.identifier = '2024/08/16/2024/0x20240816/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'xiaotuimao-vercel-app' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/avatar.png" alt="xiaoTuiMao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">xiaoTuiMao</p><p class="is-size-6 is-block">want to travel the word</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>anywhere</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/xiaoTuiMao" target="_blank" rel="noopener">关注我</a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/H5-%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">H5 开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/react/"><span class="level-start"><span class="level-item">react</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="level-start"><span class="level-item">微信小程序</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/"><span class="level-start"><span class="level-item">技术周刊</span></span><span class="level-end"><span class="level-item tag">21</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%B5%8B%E8%AF%95/"><span class="level-start"><span class="level-item">端到端测试</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BF%BB%E8%AF%91/"><span class="level-start"><span class="level-item">翻译</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-08T06:18:32.389Z">2024-09-08</time></p><p class="title"><a href="/2024/09/08/base/Popover/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-16T02:57:00.000Z">2024-08-16</time></p><p class="title"><a href="/2024/08/16/2024/0x20240816/">掌握SVG：前端早读精选教你绘制任何图形</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-16T02:57:00.000Z">2024-07-16</time></p><p class="title"><a href="/2024/07/16/2024/0x20240716/">前端早读精选 - setTimeout 带来的内存泄漏风险！</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-25T02:57:00.000Z">2024-06-25</time></p><p class="title"><a href="/2024/06/25/2024/0x20240625/">前端早读精选 - 你应该知道的 10 NodeJS 新功能、React 19 差点拖慢了整个互联网？</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-05T02:57:00.000Z">2024-06-05</time></p><p class="title"><a href="/2024/06/05/2024/0x20240605/">前端早读精选 - 如何为你的开源项目编写文档、5 中 node 版本管理方案对比、react-compiler 介绍与使用</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/05/"><span class="level-start"><span class="level-item">五月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">四月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/02/"><span class="level-start"><span class="level-item">二月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/12/"><span class="level-start"><span class="level-item">十二月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2024 xiaoTuiMao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

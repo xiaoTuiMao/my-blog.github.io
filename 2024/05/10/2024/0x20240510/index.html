@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>前端早读精选 - oclif 工具指南、CSS 处理文档溢出、你应该知道的 HTML Dom 与节点属性差异 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="oclif 一款 cli 框架的使用指南，带你快速搭建一款属于你自己的 CLI 工具、HTML Dom 属性与节点属性之间的区别，以及各大框架是如何处理的、两篇关于 CSS 魔法：1）利用 CSS 实现对文档溢出处理；2）利用 CSS 的 grid 布局绘制出一款乐谱"><meta property="og:type" content="blog"><meta property="og:title" content="前端早读精选 - oclif 工具指南、CSS 处理文档溢出、你应该知道的 HTML Dom 与节点属性差异"><meta property="og:url" content="https://xiaotuimao.github.io/my-blog.github.io/2024/05/10/2024/0x20240510/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="oclif 一款 cli 框架的使用指南，带你快速搭建一款属于你自己的 CLI 工具、HTML Dom 属性与节点属性之间的区别，以及各大框架是如何处理的、两篇关于 CSS 魔法：1）利用 CSS 实现对文档溢出处理；2）利用 CSS 的 grid 布局绘制出一款乐谱"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://xiaotuimao.github.io/images/post-header-bg.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240510/oclif.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240510/attr.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240510/image-2.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240510/music.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240510/image-1.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240510/image.png"><meta property="article:published_time" content="2024-05-10T11:23:00.000Z"><meta property="article:modified_time" content="2024-09-08T05:30:13.429Z"><meta property="article:author" content="xiaoTuiMao"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaotuimao.github.io/images/post-header-bg.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaotuimao.github.io/my-blog.github.io/2024/05/10/2024/0x20240510/"},"headline":"前端早读精选 - oclif 工具指南、CSS 处理文档溢出、你应该知道的 HTML Dom 与节点属性差异","image":["https://xiaotuimao.github.io/images/post-header-bg.png","https://xiaotuimao.github.io/images/20240510/oclif.png","https://xiaotuimao.github.io/images/20240510/attr.png","https://xiaotuimao.github.io/images/20240510/image-2.png","https://xiaotuimao.github.io/images/20240510/music.png","https://xiaotuimao.github.io/images/20240510/image-1.png","https://xiaotuimao.github.io/images/20240510/image.png"],"datePublished":"2024-05-10T11:23:00.000Z","dateModified":"2024-09-08T05:30:13.429Z","author":{"@type":"Person","name":"xiaoTuiMao"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://xiaotuimao.github.io/img/logo.svg"}},"description":"oclif 一款 cli 框架的使用指南，带你快速搭建一款属于你自己的 CLI 工具、HTML Dom 属性与节点属性之间的区别，以及各大框架是如何处理的、两篇关于 CSS 魔法：1）利用 CSS 实现对文档溢出处理；2）利用 CSS 的 grid 布局绘制出一款乐谱"}</script><link rel="canonical" href="https://xiaotuimao.github.io/my-blog.github.io/2024/05/10/2024/0x20240510/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-05-10T11:23:00.000Z" title="5/10/2024, 7:23:00 PM">2024-05-10</time>发表</span><span class="level-item"><time dateTime="2024-09-08T05:30:13.429Z" title="9/8/2024, 1:30:13 PM">2024-09-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></span><span class="level-item">19 分钟读完 (大约2829个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">前端早读精选 - oclif 工具指南、CSS 处理文档溢出、你应该知道的 HTML Dom 与节点属性差异</h1><div class="content"><p><img src="/images/post-header-bg.png"></p>
+<blockquote>
+<p>探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。</p>
+<p>**<code>文章推荐</code>**：oclif 一款 cli 框架的使用指南，带你快速搭建一款属于你自己的 CLI 工具、HTML Dom 属性与节点属性之间的区别，以及各大框架是如何处理的、两篇关于 CSS 魔法：1）利用 CSS 实现对文档溢出处理；2）利用 CSS 的 grid 布局绘制出一款乐谱</p>
+<p>**<code>工具推荐</code>**：AI 集成工具 – MaxAi.me。一键快速使用各类 AI 工具</p>
+<p>**<code>行业新闻</code>**：Bun 1.1 发布、Node V22 版本发布，快来看看它们的新特性吧</p>
+<p><strong>如果觉得有收获，欢迎大家点赞👍🏻订阅</strong></p>
+</blockquote>
+<h3 id="文章推荐"><a href="#文章推荐" class="headerlink" title="文章推荐"></a>文章推荐</h3><h4 id="oclif-工具指南"><a href="#oclif-工具指南" class="headerlink" title="oclif 工具指南"></a><a target="_blank" rel="noopener" href="https://www.joshcanhelp.com/oclif/">oclif 工具指南</a></h4><p>这篇文章是一篇教程，在不使用 oclif 的脚手架的情况下，如何搭建一个使用 oclif 搭建一个命令行工具。文章从设置项目、初始化目录、配置 TypeScript 编译器的步骤，并通过创建和扩展 oclif 的 Command 类来展示如何添加命令、参数和标志 介绍了如何使用 TypeScript 和 oclif 框架从头开始构建一个命令行接口（CLI）应用程序。</p>
+<blockquote>
+<p>附：cli 框架对比</p>
+<table>
+<thead>
+<tr>
+<th>特性&#x2F;框架</th>
+<th>oclif</th>
+<th>Commander.js</th>
+<th>Caporal.js</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>主要优点</strong></td>
+<td>强大的插件系统，功能丰富</td>
+<td>简单直观，易于上手</td>
+<td>参数验证，支持多语言</td>
+</tr>
+<tr>
+<td><strong>主要缺点</strong></td>
+<td>相对复杂，学习成本较高</td>
+<td>子命令处理基础</td>
+<td>社区较小，文档支持有限</td>
+</tr>
+<tr>
+<td><strong>社区和维护</strong></td>
+<td>由 Heroku 和 Salesforce 维护，社区活跃</td>
+<td>社区非常活跃，维护良好</td>
+<td>社区较小，更新可能不频繁</td>
+</tr>
+<tr>
+<td><strong>适用场景</strong></td>
+<td>大型、模块化的应用，需要可扩展性</td>
+<td>快速开发简单到中等复杂度的 CLI 工具</td>
+<td>需要内置参数验证和国际化支持的应用</td>
+</tr>
+<tr>
+<td><strong>自动化帮助</strong></td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td><strong>性能</strong></td>
+<td>较重，不适合轻量级应用</td>
+<td>性能良好，适合大多数应用</td>
+<td>性能适中</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p align=center><img src="/../../images/20240510/oclif.png"/></p>
+
+<p>👉🏻原文链接： <a target="_blank" rel="noopener" href="https://www.joshcanhelp.com/oclif/">oclif 工具指南</a></p>
+<h3 id="HTML属性-VS-DOM属性"><a href="#HTML属性-VS-DOM属性" class="headerlink" title="HTML属性 VS DOM属性"></a><a target="_blank" rel="noopener" href="https://jakearchibald.com/2024/attributes-vs-properties/">HTML属性 VS DOM属性</a></h3><p>详细讲解了HTML属性和DOM属性的区别，这是Web开发中的基本概念，但经常被误解。以下是文章的几个关键点总结：</p>
+<ul>
+<li><strong>属性与属性的区别</strong>：HTML属性是直接在HTML中定义的，总是字符串形式，而DOM属性是DOM对象模型的一部分，可以是任何类型。属性在HTML标记中可见，但属性通过JavaScript以编程方式访问。</li>
+<li><strong>序列化与大小写敏感性</strong>：属性可以序列化到HTML中，即它们可以在标记中被看到，并且它们是不区分大小写的。相反，属性不会序列化到HTML中并且是区分大小写的。</li>
+<li><strong>Reflection</strong>：某些属性在更改时会自动更新其相应的属性，反之亦然。但这并不总是如此，有些属性的更改不会反映到属性上。</li>
+<li><strong>验证、类型强制和默认值</strong>：属性可以强制执行验证规则和类型，自动将值转换为适当的类型或默认值。例如，如果为<code>&lt;input&gt;</code>元素的类型属性设置了非有效类型，它将恢复为默认的有效类型。</li>
+<li><strong>框架和自定义元素</strong>：文章还讨论了不同的JavaScript框架如何处理属性和属性之间的区别。例如，React和Vue等框架在将组件渲染为字符串或处理自定义元素时，有特定的处理方式。<ul>
+<li><strong>Preact 和 VueJS</strong>：通常优先将属性设置为DOM属性，除非属性名不是元素的已知属性，这种情况下才设置为HTML属性。在服务器端渲染时，它们倾向于只处理HTML属性。</li>
+<li><strong>React</strong>：React的默认策略是将大多数属性设置为HTML属性，除非这些属性被预定义为DOM属性。这种方式影响了自定义元素的功能实现，因为它们的属性可能不被识别为DOM属性。</li>
+<li><strong>lit-html</strong>：要求开发者在设置DOM属性时，在属性名前加上点（.），如.value，以明确区分HTML属性和DOM属性。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../../images/20240510/attr.png" alt="HTML属性 VS DOM属性"></p>
+<p>👉🏻原文链接： <a target="_blank" rel="noopener" href="https://jakearchibald.com/2024/attributes-vs-properties/">HTML属性 VS DOM属性</a></p>
+<h3 id="纯-CSS-检测文本是否溢出"><a href="#纯-CSS-检测文本是否溢出" class="headerlink" title="纯 CSS 检测文本是否溢出"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Y7koJGkabYEBHH1tQlLzzQ">纯 CSS 检测文本是否溢出</a></h3><p>本文介绍了一种通过CSS滚动驱动动画和CSS样式查询实现文本溢出检测的技术方案。首先，使用CSS滚动驱动动画标识容器是否溢出的方法包括在容器内部设置动画，该动画与滚动事件相关联。具体实现方式是通过定义animation-timeline属性来依赖于容器本身的滚动状态，例如使用scroll(self)表示监听容器自身的滚动。当容器滚动时，动画被触发，通过动画中的关键帧更改如颜色等属性，可以视觉上标识出容器是否发生了溢出。</p>
+<p>一旦容器被识别为溢出，CSS样式查询（即容器查询）则用于进一步定制不同状态下的样式。例如，可以在检测到容器溢出时，使用@container规则来应用特定的样式变更，这些变更仅在满足特定条件（如文本溢出）时才生效。这种查询可以指定基于容器内部状态的样式，如在CSS中设置变量–trunc，然后在容器查询中检测这个变量的值，如果为真（表示溢出），则可以调整子元素的显示，比如显示“展开”按钮或改变背景色等。</p>
+<p>这种结合使用滚动驱动动画和样式查询的方法不仅增加了页面样式的动态响应能力，也使得CSS在处理复杂交互和布局问题时更加强大和灵活。</p>
+<p>👉🏻原文链接： <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/Y7koJGkabYEBHH1tQlLzzQ">纯 CSS 检测文本是否溢出</a><br><img src="/../../images/20240510/image-2.png"></p>
+<h4 id="使用-CSS-绘制乐谱"><a href="#使用-CSS-绘制乐谱" class="headerlink" title="使用 CSS 绘制乐谱"></a><a target="_blank" rel="noopener" href="https://cruncher.ch/blog/printing-music-with-css-grid/">使用 CSS 绘制乐谱</a></h4><p>这篇文章详细介绍了使用CSS Grid来绘制网页上的音乐谱的方法。作者通过将音乐谱的每个部分（如五线谱、小节和音符）视为网格系统中的元素，利用CSS的属性来精确控制这些元素的布局和样式。文章中展示了如何定义CSS类和网格布局，以实现五线谱的横向和纵向对齐，以及如何使用CSS属性来调整音符的位置和大小。</p>
+<p><img src="/../../images/20240510/music.png" alt="music"></p>
+<p>👉🏻原文链接： <a target="_blank" rel="noopener" href="https://cruncher.ch/blog/printing-music-with-css-grid/">使用 CSS 绘制乐谱</a></p>
+<h3 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h3><h4 id="MaxAi-me"><a href="#MaxAi-me" class="headerlink" title="MaxAi.me"></a><a target="_blank" rel="noopener" href="https://chromewebstore.google.com/detail/maxaime%EF%BC%9A1%E7%82%B9%E5%87%BBai%EF%BC%8C%E7%94%B1gpt-4%E3%80%81clau/mhnlakgilnojmhinhkckjpncpbhabphi">MaxAi.me</a></h4><p>可以在任何地方一键使用 AI，由ChatGPT、Claude 3、Gemini 1.5和GPT-4提供支持。您唯一需要的生成式AI扩展</p>
+<h3 id="行业新闻"><a href="#行业新闻" class="headerlink" title="行业新闻"></a>行业新闻</h3><h4 id="Bun-1-1-发布"><a href="#Bun-1-1-发布" class="headerlink" title="Bun 1.1 发布"></a><a target="_blank" rel="noopener" href="https://bun.sh/blog/bun-v1.1">Bun 1.1 发布</a></h4><p>Bun 1.1 版本正式发布了，这是一个重大版本更新，进一步优化了这个高速的 JavaScript 运行时和工具集。以下是这个版本的简单概述:</p>
+<ul>
+<li><strong>性能提升</strong>：bun install 在 Windows 上的安装速度提升了50%，通过并行化文件复制和链接操作实现更快的性能​ (Bun)​。</li>
+<li><strong>新特性和API支持</strong>：<ul>
+<li>对 Date.parse() 函数进行了改进，以兼容 Node.js 的行为，解决了日期解析在不同 JavaScript 引擎间的不一致问题​ (Bun)​。</li>
+<li>增加了对递归文件目录读取的支持，并显著提升了 fs.readdir() 的性能，使其比 Node.js 快22倍​ (Bun)​。</li>
+</ul>
+</li>
+<li><strong>Bug修复和稳定性改进</strong>：<ul>
+<li>解决了多个与 Bun Shell、fs.watch、和 bun build –compile 相关的bug，包括修正 bun build –compile 未正确处理输出文件路径的问题​ (Bun)​​ (Bun)​​ (Bun)​。</li>
+<li>改善了 Bun 在处理带有无效文件路径的 tarballs 时的行为，现在与 Windows 上的 npm install 行为一致​ (Bun)​。</li>
+<li>修复了使用 SvelteKit 时 fetch 方法的错误处理问题，确保正确调用重写的方法和属性​ (Bun)​。</li>
+</ul>
+</li>
+<li><strong>跨平台和模块改进</strong>：<ul>
+<li>提升了 Array#sort 方法的性能，根据不同场景可提升 15% 至 135%​ (Bun)​。</li>
+<li>在 Bun for Windows 上修正了退出时重置控制台模式的问题，解决了在命令提示符中使用方向键可能出现的问题​ (Bun)​。</li>
+</ul>
+</li>
+<li><strong>与 Node.js 的兼容性</strong>：增强了与 Node.js 的互操作性，包括支持 IPC 消息传递和解决了一些 Node.js 未文档化 API 的问题​ (Bun)​。<br><img src="/../../images/20240510/image-1.png"><br>👉🏻 更多更新日志请看看原文链接：<a target="_blank" rel="noopener" href="https://bun.sh/blog/bun-v1.1">Bun 1.1 发布</a></li>
+</ul>
+<h4 id="NodeJS-22-发布"><a href="#NodeJS-22-发布" class="headerlink" title="NodeJS 22 发布"></a><a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/announcements/v22-release-announce">NodeJS 22 发布</a></h4><p>Node V22 版本正式发布了，新版本引入了几项重要的新特性和更新，旨在提高性能、增强安全性，并支持更现代的 JavaScript 功能。以下是这个版本的简单概述：</p>
+<ul>
+<li><strong>V8 引擎更新</strong>：Node.js 22 更新了其 V8 JavaScript 引擎到最新版本，带来了性能改进和对新的 ECMAScript 特性的支持。</li>
+<li><strong>性能优化</strong>：此版本包括对 Node.js 核心部分的性能优化，例如模块加载和 HTTP 处理。</li>
+<li><strong>新的和改进的 API</strong>：<ul>
+<li>引入了对新的 ECMAScript 模块（ESM）加载器的支持，这些加载器现在可以在一个独立的线程中运行，从而避免干扰主线程。</li>
+<li>提供了更多控制文件系统访问的功能，包括读写权限的细粒度控制。</li>
+<li>强化了对 WebAssembly 和 Web Crypto API 的支持，使 Node.js 在处理网络安全和性能敏感型任务时更为有效。</li>
+</ul>
+</li>
+<li><strong>实验性功能</strong>：引入了一些新的实验性功能，如单一可执行应用的支持，这可能在未来版本中成为稳定功能。</li>
+<li><strong>安全性增强</strong>：包括对特定安全性能的改进，如改进的错误处理和更新的安全协议支持。</li>
+</ul>
+<p>👉🏻 更多更新日志请看看原文链接：<a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/announcements/v22-release-announce">NodeJS 22 发布</a></p>
+<p><img src="/../../images/20240510/image.png"></p>
+</div><div class="article-licensing box"><div class="licensing-title"><p>前端早读精选 - oclif 工具指南、CSS 处理文档溢出、你应该知道的 HTML Dom 与节点属性差异</p><p><a href="https://xiaotuimao.github.io/my-blog.github.io/2024/05/10/2024/0x20240510/">https://xiaotuimao.github.io/my-blog.github.io/2024/05/10/2024/0x20240510/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>xiaoTuiMao</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-05-10</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://xiaotuimao.vercel.app/" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/05/24/2024/0x20240524/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">前端早读精选 - React Compiler 终于来了、实时通信技术方案对比、使用 Bun 最佳场景</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/04/29/2024/0x20240429/"><span class="level-item">前端早读精选 - React 19 Beat 正式发布 NPM、Qwik 与 NextJS 大比拼</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://xiaotuimao.github.io/my-blog.github.io/2024/05/10/2024/0x20240510/';
+            this.page.identifier = '2024/05/10/2024/0x20240510/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'xiaotuimao-vercel-app' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/avatar.png" alt="xiaoTuiMao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">xiaoTuiMao</p><p class="is-size-6 is-block">want to travel the word</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>anywhere</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/xiaoTuiMao" target="_blank" rel="noopener">关注我</a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/H5-%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">H5 开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/react/"><span class="level-start"><span class="level-item">react</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="level-start"><span class="level-item">微信小程序</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/"><span class="level-start"><span class="level-item">技术周刊</span></span><span class="level-end"><span class="level-item tag">21</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%B5%8B%E8%AF%95/"><span class="level-start"><span class="level-item">端到端测试</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BF%BB%E8%AF%91/"><span class="level-start"><span class="level-item">翻译</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-08T06:18:32.389Z">2024-09-08</time></p><p class="title"><a href="/2024/09/08/base/Popover/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-16T02:57:00.000Z">2024-08-16</time></p><p class="title"><a href="/2024/08/16/2024/0x20240816/">掌握SVG：前端早读精选教你绘制任何图形</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-16T02:57:00.000Z">2024-07-16</time></p><p class="title"><a href="/2024/07/16/2024/0x20240716/">前端早读精选 - setTimeout 带来的内存泄漏风险！</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-25T02:57:00.000Z">2024-06-25</time></p><p class="title"><a href="/2024/06/25/2024/0x20240625/">前端早读精选 - 你应该知道的 10 NodeJS 新功能、React 19 差点拖慢了整个互联网？</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-05T02:57:00.000Z">2024-06-05</time></p><p class="title"><a href="/2024/06/05/2024/0x20240605/">前端早读精选 - 如何为你的开源项目编写文档、5 中 node 版本管理方案对比、react-compiler 介绍与使用</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/05/"><span class="level-start"><span class="level-item">五月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">四月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/02/"><span class="level-start"><span class="level-item">二月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/12/"><span class="level-start"><span class="level-item">十二月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2024 xiaoTuiMao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>

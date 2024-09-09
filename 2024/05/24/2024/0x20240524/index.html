@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>前端早读精选 - React Compiler 终于来了、实时通信技术方案对比、使用 Bun 最佳场景 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="前后端实时通信的几种方案对比、对比 NodeJS，Bun更适合的几个关键场景、对比 dotenv，Node v20.6 以后的新版本更优雅的处理方式、苦等三年，React Compiler（原来叫 React Forget）终于来了。"><meta property="og:type" content="blog"><meta property="og:title" content="前端早读精选 - React Compiler 终于来了、实时通信技术方案对比、使用 Bun 最佳场景"><meta property="og:url" content="https://xiaotuimao.github.io/my-blog.github.io/2024/05/24/2024/0x20240524/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="前后端实时通信的几种方案对比、对比 NodeJS，Bun更适合的几个关键场景、对比 dotenv，Node v20.6 以后的新版本更优雅的处理方式、苦等三年，React Compiler（原来叫 React Forget）终于来了。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://xiaotuimao.github.io/images/post-header-bg.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240524/image.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240524/image-1.png"><meta property="og:image" content="https://xiaotuimao.github.io/images/20240524/image-2.png"><meta property="og:image" content="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2427d2185bf42dcbf4cbaf71c260f63~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1296&amp;h=434&amp;s=227230&amp;e=png&amp;b=010101"><meta property="article:published_time" content="2024-05-24T02:57:00.000Z"><meta property="article:modified_time" content="2024-09-08T05:30:13.423Z"><meta property="article:author" content="xiaoTuiMao"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaotuimao.github.io/images/post-header-bg.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaotuimao.github.io/my-blog.github.io/2024/05/24/2024/0x20240524/"},"headline":"前端早读精选 - React Compiler 终于来了、实时通信技术方案对比、使用 Bun 最佳场景","image":["https://xiaotuimao.github.io/images/post-header-bg.png","https://xiaotuimao.github.io/images/20240524/image.png","https://xiaotuimao.github.io/images/20240524/image-1.png","https://xiaotuimao.github.io/images/20240524/image-2.png"],"datePublished":"2024-05-24T02:57:00.000Z","dateModified":"2024-09-08T05:30:13.423Z","author":{"@type":"Person","name":"xiaoTuiMao"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://xiaotuimao.github.io/img/logo.svg"}},"description":"前后端实时通信的几种方案对比、对比 NodeJS，Bun更适合的几个关键场景、对比 dotenv，Node v20.6 以后的新版本更优雅的处理方式、苦等三年，React Compiler（原来叫 React Forget）终于来了。"}</script><link rel="canonical" href="https://xiaotuimao.github.io/my-blog.github.io/2024/05/24/2024/0x20240524/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2024-05-24T02:57:00.000Z" title="5/24/2024, 10:57:00 AM">2024-05-24</time>发表</span><span class="level-item"><time dateTime="2024-09-08T05:30:13.423Z" title="9/8/2024, 1:30:13 PM">2024-09-08</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></span><span class="level-item">15 分钟读完 (大约2236个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">前端早读精选 - React Compiler 终于来了、实时通信技术方案对比、使用 Bun 最佳场景</h1><div class="content"><p><img src="/images/post-header-bg.png"></p>
+<blockquote>
+<p>探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。</p>
+<p>**<code>文章推荐</code>**：前后端实时通信的几种方案对比、对比 NodeJS，Bun更适合的几个关键场景、对比 dotenv，Node v20.6 以后的新版本更优雅的处理方式、苦等三年，React Compiler（原来叫 React Forget）终于来了。</p>
+<p>**<code>工具推荐</code>**：<code>vspace</code> 浏览器标签管理工具、<code>ElysiaJS</code> 基于 Bun 的服务端框架、<code>DashPlayer</code> 学习英语的好帮手</p>
+<p>**<code>行业新闻</code>**：React Conf 2024 都有啥、Google AI 视频方案 Veo</p>
+<p><strong>如果觉得有收获，欢迎大家点赞👍🏻订阅</strong></p>
+</blockquote>
+<h3 id="文章推荐"><a href="#文章推荐" class="headerlink" title="文章推荐"></a>文章推荐</h3><h4 id="ws、sse、polling、webrtc、webtransport-对比"><a href="#ws、sse、polling、webrtc、webtransport-对比" class="headerlink" title="ws、sse、polling、webrtc、webtransport 对比"></a><a target="_blank" rel="noopener" href="https://rxdb.info/articles/websockets-sse-polling-webrtc-webtransport.html">ws、sse、polling、webrtc、webtransport 对比</a></h4><p>这篇文章比较了几种用于实时Web应用的技术，包括长轮询（Long-Polling）、WebSockets、服务器发送事件（SSE）、WebRTC和WebTransport。文章详细介绍了每种技术的工作原理、优缺点和适用场景。长轮询适用于低效率的后备机制，WebSockets适合需要双向通信的场景，SSE适合单向服务器到客户端的实时更新，WebTransport是未来的高效通信技术，而WebRTC主要用于点对点通信。文章还讨论了这些技术在性能、延迟、吞吐量和可扩展性方面的比较。</p>
+<p><img src="/../../images/20240524/image.png"></p>
+<blockquote>
+<p>👉🏻 原文链接：<a target="_blank" rel="noopener" href="https://rxdb.info/articles/websockets-sse-polling-webrtc-webtransport.html">ws、sse、polling、webrtc、webtransport 对比</a></p>
+</blockquote>
+<h4 id="何时使用-Bun-而不是-NodeJS"><a href="#何时使用-Bun-而不是-NodeJS" class="headerlink" title="何时使用 Bun 而不是 NodeJS"></a><a target="_blank" rel="noopener" href="https://blog.appsignal.com/2024/05/01/when-to-use-bun-instead-of-nodejs.html">何时使用 Bun 而不是 NodeJS</a></h4><p>文章讨论了在某些场景下使用 Bun 代替 Node.js 的优势。Bun 是一种新兴的 JavaScript 运行时，因其卓越的性能和内置功能而受到关注。以下是文章中提到的几个关键场景及其对比 Node.js 的优势：</p>
+<ol>
+<li><strong>性能需求高</strong>：由于使用 Zig 语言编写，Bun 比 Node.js 更快，启动速度快 4 倍，包管理速度快 25 倍。</li>
+<li><strong>需要一体化解决方案</strong>：Bun 内置了包管理器、测试工具和打包器，提供统一的开发体验。</li>
+<li><strong>模块解析复杂</strong>：提供一致的模块解析系统，兼容 CommonJS 和 ES 模块，简化了模块间的互操作性。</li>
+<li><strong>需要高效的内置数据库</strong>：集成了高性能的 SQLite 驱动，适合作为内部数据库使用。</li>
+<li><strong>需要未来可切换到 Node.js 的灵活性</strong>：设计为与 Node.js 兼容，便于在需要时切换到 Node.js。</li>
+</ol>
+<p><img src="/../../images/20240524/image-1.png"></p>
+<blockquote>
+<p>👉🏻原文链接: <a target="_blank" rel="noopener" href="https://blog.appsignal.com/2024/05/01/when-to-use-bun-instead-of-nodejs.html">何时使用 Bun 而不是 NodeJS</a></p>
+</blockquote>
+<h4 id="你可能并不需要dotenv"><a href="#你可能并不需要dotenv" class="headerlink" title="你可能并不需要dotenv"></a><a target="_blank" rel="noopener" href="https://javascript.plainenglish.io/ditch-dotenv-node-js-now-natively-supports-env-file-loading-8b9b2d49b2d2">你可能并不需要dotenv</a></h4><p>在 Node.js 20.6.0版本发布后，Node.js 现在原生支持 <code>.env</code> 文件加载，使开发者不再需要使用外部包如 <code>dotenv</code> 来管理环境变量。通过使用 <code>--env-file</code> 标志可以轻松加载 <code>.env</code> 文件，简化配置过程并提升性能和安全性。</p>
+<p><img src="/../../images/20240524/image-2.png"></p>
+<p>举个🌰：假设有一个名为 <code>config.env</code> 的文件，内容如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`NODE_OPTIONS=&#x27;--title=&quot;Testing Node v20.6.0&quot;&#x27; USER_NAME=&#x27;John Doe&#x27;`</span><br></pre></td></tr></table></figure>
+<p>你可以使用以下命令来加载这个文件，config.env<code>文件中的变量将被加载到</code>process.env&#96;</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">`node --env-file=config.env index.js`</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://javascript.plainenglish.io/ditch-dotenv-node-js-now-natively-supports-env-file-loading-8b9b2d49b2d2">你可能并不需要dotenv</a></p>
+</blockquote>
+<h4 id="苦等三年，React-Compiler-终于能用了。使用体验：很爽，但仍有瑕疵"><a href="#苦等三年，React-Compiler-终于能用了。使用体验：很爽，但仍有瑕疵" class="headerlink" title="苦等三年，React Compiler 终于能用了。使用体验：很爽，但仍有瑕疵"></a><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/0ejbUqLFO647aNz7iZFZ6w">苦等三年，React Compiler 终于能用了。使用体验：很爽，但仍有瑕疵</a></h4><p>React Compiler（原名 React Forget）终于在 React Conf 2024 开源。它通过缓存未变更的组件，解决了 React 中冗余的 re-render 问题，从而提升性能。React Compiler 集成于代码自动编译中，使用时不改变现有开发方式。可以通过<code>react-compiler-healthcheck</code>来对老代码进行检查，判断其兼容性。此外 React Compiler 还支持局部使用，通过配置可以仅针对某些文件夹进行 compiler 优化，适用于多种开发环境（如 Vite、Next.js、Remix、Webpack）。虽然有时会遇到问题，但总体上提升了开发体验和性能，尤其对新项目和初学者更友好。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b2427d2185bf42dcbf4cbaf71c260f63~tplv-k3u1fbpfcp-jj-mark:0:0:0:0:q75.image#?w=1296&h=434&s=227230&e=png&b=010101"></p>
+<blockquote>
+<p>👉🏻原文链接：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/0ejbUqLFO647aNz7iZFZ6w">苦等三年，React Compiler 终于能用了。使用体验：很爽，但仍有瑕疵</a></p>
+</blockquote>
+<h3 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h3><h4 id="vspace"><a href="#vspace" class="headerlink" title="vspace"></a><a target="_blank" rel="noopener" href="https://vspace.cyhuajuan.site/">vspace</a></h4><p>VSpace 是一个在浏览器侧边栏上实现的垂直式的书签和标签页管理器扩展，灵感来源于 Arc 浏览器，目的是在非 Arc 浏览器上（主要是 Chrome）做到更好的的侧边栏体验。</p>
+<ul>
+<li><p><strong>适合人群</strong></p>
+<ul>
+<li>对浏览器自带的书签管理功能不满意，想要更好的体验</li>
+<li>想要在本身不支持垂直标签页的浏览器上使用垂直标签页</li>
+<li>想要在其它 chromium 浏览器上体验类似 Arc 浏览器侧边栏功能</li>
+</ul>
+</li>
+<li><p><strong>浏览器支持</strong></p>
+<ul>
+<li><strong>Chrome</strong> <em>完全支持</em></li>
+<li><strong>Edge</strong> <em>支持，但侧面板无法设置到左侧，因为 Edge 不支持</em></li>
+<li><strong>Arc</strong> <em>不支持，因为 Arc 浏览器本身不支持侧边栏扩展</em></li>
+<li><strong>FireFox</strong> <em>不支持</em></li>
+<li><strong>其它 chromium 浏览器</strong> <em>没有测试，理论上只要支持侧边栏的就支持</em></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>👉🏻工具地址：<a target="_blank" rel="noopener" href="https://vspace.cyhuajuan.site/">vspace</a></p>
+</blockquote>
+<h4 id="ElysiaJS"><a href="#ElysiaJS" class="headerlink" title="ElysiaJS"></a><a target="_blank" rel="noopener" href="https://elysiajs.com/">ElysiaJS</a></h4><p>ElysiaJS 是一个优化了高性能和开发者体验的 TypeScript 框架。其主要优点包括：</p>
+<ol>
+<li><strong>速度快</strong>：比 Express 快21倍，利用 Bun 运行时和动态代码注入。</li>
+<li><strong>类型安全</strong>：确保端到端的类型安全，自动类型推断。</li>
+<li><strong>简洁</strong>：代码简洁，轻松处理响应并集成 OpenAPI&#x2F;Swagger 进行文档化。</li>
+<li><strong>生产力高</strong>：内置验证和统一类型系统，减少样板代码。</li>
+<li><strong>社区和插件</strong>：广泛的插件支持和强大的社区。</li>
+</ol>
+<blockquote>
+<p>👉🏻工具地址：<a target="_blank" rel="noopener" href="https://elysiajs.com/">ElysiaJS</a></p>
+</blockquote>
+<h4 id="DashPlayer"><a href="#DashPlayer" class="headerlink" title="DashPlayer"></a><a target="_blank" rel="noopener" href="https://github.com/solidSpoon/DashPlayer">DashPlayer</a></h4><p>一款专为英语学习打造的视频播放器。DashPlayer 的目标就是方便你观看英文视频。无论你是想泛听，还是想一句句精听，亦或是想要查询生词，DashPlayer 精心打磨的手感让您始终心情愉悦。</p>
+<ul>
+<li><strong>双语字幕</strong>：支持机器翻译字幕。只展示中文&#x2F;英文，或者全部隐藏都可以。</li>
+<li><strong>按字幕跳转：</strong> 重复当前句，或者跳到上一句，怎么跳都可以。</li>
+<li><strong>查词查询</strong>：鼠标悬停生词可快速查询，不打断学习进程。</li>
+<li><strong>可调整界面尺寸：</strong> 界面尺寸可调，适应不同屏幕和学习场景。</li>
+<li><strong>记录播放位置：</strong> 自动记录上次播放位置，方便下次接着学习。</li>
+<li><strong>蓝牙遥控操作：</strong> 支持蓝牙遥控，让你随时调整音量、跳转视频，学习更轻松！</li>
+<li><strong>夜间模式</strong>：内置暗色&#x2F;亮色主题，适配您的学习环境。</li>
+<li><strong>AI 字幕</strong>：可以使用 AI 为视频生成字幕。</li>
+<li><strong>长视频切分</strong>：看一段删一段，没有压力。</li>
+<li><strong>视频下载</strong>：粘贴视频链接，下载视频。</li>
+</ul>
+<blockquote>
+<p>👉🏻工具地址：<a target="_blank" rel="noopener" href="https://github.com/solidSpoon/DashPlayer">DashPlayer</a></p>
+</blockquote>
+<h3 id="行业新闻"><a href="#行业新闻" class="headerlink" title="行业新闻"></a>行业新闻</h3><h4 id="📹-react-Conf-2024"><a href="#📹-react-Conf-2024" class="headerlink" title="📹 react Conf 2024"></a>📹 <a target="_blank" rel="noopener" href="https://conf.react.dev/">react Conf 2024</a></h4><p>React Conf 2024的主要内容围绕React 19的发布以及React团队当前的一些重点工作,如React编译器和React服务器组件。</p>
+<blockquote>
+<p>要说最近前端圈最热的是什么，那当然是 <a target="_blank" rel="noopener" href="https://conf.react.dev/">React Conf 2024</a> 了。快点击视频了解一下吧</p>
+</blockquote>
+<h4 id="google-veo"><a href="#google-veo" class="headerlink" title="google-veo"></a><a target="_blank" rel="noopener" href="https://www.aihub.cn/tools/video/google-veo/">google-veo</a></h4><p>Veo 是 Google DeepMind 开发的先进视频生成模型，能够生成1080p高分辨率、长时长的高质量视频。它支持广泛的电影和视觉风格，准确捕捉提示的细微差别，并提供创意控制。Veo 旨在使视频制作更易于访问，解锁叙事、教育等领域的新可能性。</p>
+<blockquote>
+<p>PS：Google 的视频解决方案的热度远远低于 OpenAI 的 Sora。🤔🤔🤔</p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>前端早读精选 - React Compiler 终于来了、实时通信技术方案对比、使用 Bun 最佳场景</p><p><a href="https://xiaotuimao.github.io/my-blog.github.io/2024/05/24/2024/0x20240524/">https://xiaotuimao.github.io/my-blog.github.io/2024/05/24/2024/0x20240524/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>xiaoTuiMao</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2024-05-24</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2024-09-08</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://xiaotuimao.vercel.app/" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-start"><a class="article-nav-prev level level-item link-muted" href="/2024/06/05/2024/0x20240605/"><i class="level-item fas fa-chevron-left"></i><span class="level-item">前端早读精选 - 如何为你的开源项目编写文档、5 中 node 版本管理方案对比、react-compiler 介绍与使用</span></a></div><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/05/10/2024/0x20240510/"><span class="level-item">前端早读精选 - oclif 工具指南、CSS 处理文档溢出、你应该知道的 HTML Dom 与节点属性差异</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://xiaotuimao.github.io/my-blog.github.io/2024/05/24/2024/0x20240524/';
+            this.page.identifier = '2024/05/24/2024/0x20240524/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'xiaotuimao-vercel-app' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/avatar.png" alt="xiaoTuiMao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">xiaoTuiMao</p><p class="is-size-6 is-block">want to travel the word</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>anywhere</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">35</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/xiaoTuiMao" target="_blank" rel="noopener">关注我</a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/H5-%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">H5 开发</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/categories/react/"><span class="level-start"><span class="level-item">react</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="level-start"><span class="level-item">微信小程序</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/"><span class="level-start"><span class="level-item">技术周刊</span></span><span class="level-end"><span class="level-item tag">21</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%B5%8B%E8%AF%95/"><span class="level-start"><span class="level-item">端到端测试</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BF%BB%E8%AF%91/"><span class="level-start"><span class="level-item">翻译</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-09-08T06:18:32.389Z">2024-09-08</time></p><p class="title"><a href="/2024/09/08/base/Popover/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-16T02:57:00.000Z">2024-08-16</time></p><p class="title"><a href="/2024/08/16/2024/0x20240816/">掌握SVG：前端早读精选教你绘制任何图形</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-16T02:57:00.000Z">2024-07-16</time></p><p class="title"><a href="/2024/07/16/2024/0x20240716/">前端早读精选 - setTimeout 带来的内存泄漏风险！</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-25T02:57:00.000Z">2024-06-25</time></p><p class="title"><a href="/2024/06/25/2024/0x20240625/">前端早读精选 - 你应该知道的 10 NodeJS 新功能、React 19 差点拖慢了整个互联网？</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-06-05T02:57:00.000Z">2024-06-05</time></p><p class="title"><a href="/2024/06/05/2024/0x20240605/">前端早读精选 - 如何为你的开源项目编写文档、5 中 node 版本管理方案对比、react-compiler 介绍与使用</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2024/09/"><span class="level-start"><span class="level-item">九月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/05/"><span class="level-start"><span class="level-item">五月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">四月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/02/"><span class="level-start"><span class="level-item">二月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/12/"><span class="level-start"><span class="level-item">十二月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2024 xiaoTuiMao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
