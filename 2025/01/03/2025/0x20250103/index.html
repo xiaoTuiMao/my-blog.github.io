@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>前端早读精选：从 web 到 Native 使用 React - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。本周推荐 React 潜在的内存泄漏风险、JS 中常见的内存泄漏原因以及排查解决方案、通过一个具体的例子去学习 React Suspense、利用 EventTarget 实现简易 Signals 响应式机制、现代前端框架的渲染模式、从 web 到 Native 使用 React 等。"><meta property="og:type" content="blog"><meta property="og:title" content="前端早读精选：从 web 到 Native 使用 React"><meta property="og:url" content="https://xiaotuimao.vercel.app/2025/01/03/2025/0x20250103/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。本周推荐 React 潜在的内存泄漏风险、JS 中常见的内存泄漏原因以及排查解决方案、通过一个具体的例子去学习 React Suspense、利用 EventTarget 实现简易 Signals 响应式机制、现代前端框架的渲染模式、从 web 到 Native 使用 React 等。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/post-header-bg.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/react-comipler.excalidraw.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/image-3.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/image-4.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/image-5.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/image-6.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/image-1.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/image-7.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/image-8.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/image.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20241115/image-2.png"><meta property="article:published_time" content="2025-01-03T02:11:00.000Z"><meta property="article:modified_time" content="2025-01-03T09:01:09.123Z"><meta property="article:author" content="xiaoTuiMao"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaotuimao.vercel.app/images/post-header-bg.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaotuimao.vercel.app/2025/01/03/2025/0x20250103/"},"headline":"前端早读精选：从 web 到 Native 使用 React","image":["https://xiaotuimao.vercel.app/images/post-header-bg.png","https://xiaotuimao.vercel.app/images/20241115/react-comipler.excalidraw.png","https://xiaotuimao.vercel.app/images/20241115/image-3.png","https://xiaotuimao.vercel.app/images/20241115/image-4.png","https://xiaotuimao.vercel.app/images/20241115/image-5.png","https://xiaotuimao.vercel.app/images/20241115/image-6.png","https://xiaotuimao.vercel.app/images/20241115/image-1.png","https://xiaotuimao.vercel.app/images/20241115/image-7.png","https://xiaotuimao.vercel.app/images/20241115/image-8.png","https://xiaotuimao.vercel.app/images/20241115/image.png","https://xiaotuimao.vercel.app/images/20241115/image-2.png"],"datePublished":"2025-01-03T02:11:00.000Z","dateModified":"2025-01-03T09:01:09.123Z","author":{"@type":"Person","name":"xiaoTuiMao"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://xiaotuimao.vercel.app/img/logo.svg"}},"description":"探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。本周推荐 React 潜在的内存泄漏风险、JS 中常见的内存泄漏原因以及排查解决方案、通过一个具体的例子去学习 React Suspense、利用 EventTarget 实现简易 Signals 响应式机制、现代前端框架的渲染模式、从 web 到 Native 使用 React 等。"}</script><link rel="canonical" href="https://xiaotuimao.vercel.app/2025/01/03/2025/0x20250103/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-01-03T02:11:00.000Z" title="1/3/2025, 10:11:00 AM">2025-01-03</time>发表</span><span class="level-item"><time dateTime="2025-01-03T09:01:09.123Z" title="1/3/2025, 5:01:09 PM">2025-01-03</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></span><span class="level-item">20 分钟读完 (大约3016个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">前端早读精选：从 web 到 Native 使用 React</h1><div class="content"><p><img src="/../../images/post-header-bg.png"></p>
+<blockquote>
+<p>探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。</p>
+<ul>
+<li>**<code>JS 文章推荐</code>**：React 潜在的内存泄漏风险、JS 中常见的内存泄漏原因以及排查解决方案、通过一个具体的例子去学习 React Suspense、利用 EventTarget 实现简易 Signals 响应式机制、现代前端框架的渲染模式、从 web 到 Native 使用 React 等。</li>
+<li>**<code>NodeJS 文章推荐</code>**：二十八张图彻底讲明白 HTTPS 的加密流程、用 Rust 增强你的 Node 应用</li>
+<li>**<code>工具推荐</code>**：用于生成基于矢量的卡通面孔的 JavaScript 库 – faces.js、每位开发者都应掌握的10个重要终端命令</li>
+</ul>
+<p><strong>如果觉得有收获，欢迎大家点赞👍🏻订阅</strong></p>
+</blockquote>
+<h3 id="JS-相关推荐"><a href="#JS-相关推荐" class="headerlink" title="JS 相关推荐"></a>JS 相关推荐</h3><h4 id="React-潜在的内存泄漏风险"><a href="#React-潜在的内存泄漏风险" class="headerlink" title="React 潜在的内存泄漏风险"></a><a target="_blank" rel="noopener" href="https://www.schiener.io/2024-03-03/react-closures">React 潜在的内存泄漏风险</a></h4><p>我们都知道在浏览器的垃圾回收机制里，会采用标记清楚的算法，浏览器扫描不被引用的对象，进行销毁。当我们使用 useCallback 或者 useMemo 的时候，在依赖没有变更的时候，会使用上一次的值，而上一次的值存在在上次 render  函数创建的闭包，因为存在引用关系，所以对应的作用域下的变量都不会得到销毁，当依赖发生变更，创建新的对象，才会对上一次的作用域里的变量进行回收。在常规场景下，仅仅只保留上次的闭包作用域还不会造成内存泄漏。但是如果我们操作不当，可能会导致本该被销毁的作用域没有销毁，从而造成内存泄漏。该系列分为两部分，第一部分讲解了使用 <code>useCallback</code> 这类缓存hook时，可能存在的内存泄漏风险，<a target="_blank" rel="noopener" href="https://www.schiener.io/2024-07-07/react-closures-compiler">第二部分</a>解析在利用 <code>React Compiler</code> 的情况下，可能存在的内存泄漏风险。</p>
+<p><img src="/../../images/20241115/react-comipler.excalidraw.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.schiener.io/2024-03-03/react-closures">👉🏻点击查看原文：React 潜在的内存泄漏风险</a>，<a target="_blank" rel="noopener" href="https://www.schiener.io/2024-07-07/react-closures-compiler">第二部分</a></p>
+</blockquote>
+<h4 id="common-causes-of-memory-leaks-in-javascript"><a href="#common-causes-of-memory-leaks-in-javascript" class="headerlink" title="common-causes-of-memory-leaks-in-javascript"></a><a target="_blank" rel="noopener" href="https://www.trevorlasn.com/blog/common-causes-of-memory-leaks-in-javascript">common-causes-of-memory-leaks-in-javascript</a></h4><p>文章讨论了JavaScript内存泄漏的常见原因及如何识别、解决问题。重点包括Node.js中V8引擎的不同内存类别（如RSS、堆内存、外部内存和Array Buffers）。常见的内存泄漏原因包括：</p>
+<ul>
+<li>未清理的引用：例如全局变量、闭包和事件监听器。</li>
+<li>遗留的DOM引用。</li>
+<li>外部资源占用：如Buffer对象或C++绑定资源。</li>
+</ul>
+<p><img src="/../../images/20241115/image-3.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.trevorlasn.com/blog/common-causes-of-memory-leaks-in-javascript">👉🏻点击查看原文：common-causes-of-memory-leaks-in-javascript</a></p>
+</blockquote>
+<h4 id="react-learn-suspense"><a href="#react-learn-suspense" class="headerlink" title="react-learn-suspense"></a><a target="_blank" rel="noopener" href="https://www.bbss.dev/posts/react-learn-suspense/">react-learn-suspense</a></h4><p>本文通过构建一个支持 Suspense 的数据获取库来详细解释 React Suspense 的工作原理。核心知识点包括：</p>
+<ul>
+<li>Suspense 边界：如何处理加载状态和 UI 回退。</li>
+<li>错误边界：处理请求失败并展示备用 UI。</li>
+<li>共享缓存：解决重复请求和状态丢失问题，优化数据管理。</li>
+<li>重置边界：重置状态避免数据异常影响渲染。<br>整体目标是利用 Suspense 简化逻辑、提升组件的数据处理效率。</li>
+</ul>
+<p><img src="/../../images/20241115/image-4.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.bbss.dev/posts/react-learn-suspense/">👉🏻点击查看原文：react-learn-suspense</a></p>
+</blockquote>
+<h4 id="利用-EventTarget-实现简易-Signals-响应式机制"><a href="#利用-EventTarget-实现简易-Signals-响应式机制" class="headerlink" title="利用 EventTarget 实现简易 Signals 响应式机制"></a><a target="_blank" rel="noopener" href="https://plainvanillaweb.com/blog/articles/2024-08-30-poor-mans-signals/">利用 EventTarget 实现简易 Signals 响应式机制</a></h4><p>文章介绍了如何在Vanilla JavaScript中实现简易版的signals机制，核心概念包括利用 EventTarget 实现响应式状态，添加副作用函数（effect）来监听值的变化，以及自动垃圾回收避免内存泄漏。这种轻量级方法适用于简单项目，并能与 Web Components 配合使用，实现基本的状态管理功能。</p>
+<p><img src="/../../images/20241115/image-5.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://plainvanillaweb.com/blog/articles/2024-08-30-poor-mans-signals/">👉🏻点击查看原文：利用 EventTarget 实现简易 Signals 响应式机制</a></p>
+</blockquote>
+<h4 id="现代前端框架的渲染模式"><a href="#现代前端框架的渲染模式" class="headerlink" title="现代前端框架的渲染模式"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7241027834490437669">现代前端框架的渲染模式</a></h4><p>文章介绍了现代前端框架的多种渲染模式，包括传统 SSR、前后端分离、CSR、SSG、ISG、Progressive Hydration、SSR with streaming、Selective Hydration、Islands Architecture 和 React Server Component 等</p>
+<p><img src="/../../images/20241115/image-6.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7241027834490437669">👉🏻点击查看原文：现代前端框架的渲染模式</a></p>
+</blockquote>
+<h4 id="从-web-到-Native-使用-React"><a href="#从-web-到-Native-使用-React" class="headerlink" title="从 web 到 Native 使用 React"></a><a target="_blank" rel="noopener" href="https://expo.dev/blog/from-web-to-native-with-react">从 web 到 Native 使用 React</a></h4><p>这篇文章详细介绍了如何使用 React 从 Web 开发过渡到原生应用开发，重点介绍了 React Native 的核心概念、常用组件、样式处理以及常见的开发陷阱。<br><strong>React Native 核心组件</strong>：</p>
+<ul>
+<li>View：类似于 Web 中的 div，用于布局和样式。</li>
+<li>ScrollView：用于创建可滚动的视图，适用于需要滚动内容的场景。</li>
+<li>Text：用于显示文本内容，所有文本都必须包裹在 Text 组件中。</li>
+<li>Image：用于显示图片，支持从 URL 或本地文件加载。</li>
+<li>FlatList：用于高性能地渲染长列表数据，类似于 Web 中的 array.map()。</li>
+<li>TextInput：用于接受用户输入，类似于 Web 中的 <input type="text" />。</li>
+<li>TouchableOpacity 和 Pressable：用于创建可点击区域，类似于 Web 中的按钮。</li>
+<li>Switch：用于创建开关组件，类似于 Web 中的 <input type="checkbox" />。<br><strong>样式处理</strong>：<br>React Native 使用内联样式，通过 style 属性传递给组件。 虽然大多数 CSS 属性都被支持，但存在一些差异：<br>没有全局样式，所有样式都是局部的。<br>使用 Flexbox 进行布局，但默认值与 Web 不同，例如 flexDirection 默认为 column。<br>此外，社区中有一些流行的样式库可供选择，如 NativeWind、Styled Components 和 Tamagui。<br><strong>常见陷阱</strong>：</li>
+<li>避免使用 array.map 渲染长列表：在原生应用中，直接使用 array.map 渲染长列表可能导致性能问题，建议使用 FlatList 或其他虚拟列表组件。</li>
+<li>避免使用内置的 Button 组件：React Native 的 Button 组件定制性差，建议使用 TouchableOpacity 或 Pressable 来创建按钮。</li>
+<li>避免在渲染中使用逻辑与 (&amp;&amp;) 运算符：直接使用 &amp;&amp; 可能导致渲染意外的值，建议使用三元运算符进行条件渲染。</li>
+<li>不要在应用代码中存放敏感信息：与 Web 类似，避免在客户端代码中包含敏感的 API 密钥或机密信息。<br><strong>原生开发特有的概念</strong>：</li>
+<li>构建签名：在发布应用时，需要对应用进行签名，以确保其来源可信。</li>
+<li>深度链接：允许通过特定的 URL 打开应用中的特定页面。</li>
+<li>手势和触摸：移动应用中常用的交互方式，如滑动、长按等。</li>
+<li>触觉反馈：通过设备的振动反馈增强用户体验。</li>
+<li>动画：使用 React Native 的动画 API 创建流畅的用户界面。</li>
+<li>像素密度：不同设备的像素密度不同，需要考虑在不同设备上显示的清晰度。<br>这篇文章为从 Web 开发转向原生应用开发的开发者提供了全面的指导，帮助他们理解 React Native 的核心概念和最佳实践。</li>
+</ul>
+<p><img src="/../../images/20241115/image-1.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://expo.dev/blog/from-web-to-native-with-react">👉🏻点击查看原文：从 web 到 Native 使用 React</a></p>
+</blockquote>
+<h3 id="NodeJS-相关推荐"><a href="#NodeJS-相关推荐" class="headerlink" title="NodeJS 相关推荐"></a>NodeJS 相关推荐</h3><h4 id="二十八张图彻底讲明白-HTTPS-的加密流程"><a href="#二十八张图彻底讲明白-HTTPS-的加密流程" class="headerlink" title="二十八张图彻底讲明白 HTTPS 的加密流程"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7289748806438027264">二十八张图彻底讲明白 HTTPS 的加密流程</a></h4><p>这篇文章通过28张图详细解释了HTTPS的加密流程。主要内容包括对称加密、非对称加密、公钥和私钥的使用方式，以及数字签名的工作原理。随后，文章深入讲解了HTTPS如何结合对称加密与非对称加密实现安全通信，确保数据的机密性和完整性，防止被拦截与篡改。</p>
+<p><img src="/../../images/20241115/image-7.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7289748806438027264">👉🏻点击查看原文：二十八张图彻底讲明白 HTTPS 的加密流程</a></p>
+</blockquote>
+<h4 id="neon-rs"><a href="#neon-rs" class="headerlink" title="neon-rs"></a><a target="_blank" rel="noopener" href="https://neon-rs.dev/docs/introduction">neon-rs</a></h4><p>Neon 是一个用于将 Rust 嵌入到您的 Node.js 应用程序和库中的库和工具链。使用 Neon，您可以像在 C 或 C++ 中一样创建本地 Node 模块，但不会遇到与不安全的系统编程相关的问题。<br>使用 Neon 能够将 rust 代码编译为 二进制文件，同时通过 npm 指定 main 导出文件，就可以愉快的在 js 中引用了。</p>
+<p><img src="/../../images/20241115/image-8.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://neon-rs.dev/docs/introduction">👉🏻点击查看原文：neon-rs</a></p>
+</blockquote>
+<h3 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h3><h4 id="facesjs"><a href="#facesjs" class="headerlink" title="facesjs"></a><a target="_blank" rel="noopener" href="https://github.com/zengm-games/facesjs">facesjs</a></h4><p>用于生成基于矢量的卡通面孔的 JavaScript 库。faces.js 是一个 JavaScript 库，用于生成和显示卡通面孔，有些类似于任天堂的 Mii。面孔以 SVG 形式绘制，也可以用一个小的 JavaScript 对象表示，这样你就可以存储该对象，然后以后再次绘制相同的面孔。也可以使用<a target="_blank" rel="noopener" href="https://zengm.com/facesjs/editor/#eyJmYXRuZXNzIjowLjQ1LCJ0ZWFtQ29sb3JzIjpbIiM4OWJmZDMiLCIjN2ExMzE5IiwiIzA3MzY0ZiJdLCJoYWlyQmciOnsiaWQiOiJsb25nSGFpciJ9LCJib2R5Ijp7ImlkIjoiYm9keTQiLCJjb2xvciI6IiNmMmQ2Y2IiLCJzaXplIjoxLjAyfSwiamVyc2V5Ijp7ImlkIjoiamVyc2V5In0sImVhciI6eyJpZCI6ImVhcjMiLCJzaXplIjoxLjQyfSwiaGVhZCI6eyJpZCI6ImhlYWQ0Iiwic2hhdmUiOiJyZ2JhKDAsMCwwLDApIn0sImV5ZUxpbmUiOnsiaWQiOiJsaW5lMiJ9LCJzbWlsZUxpbmUiOnsiaWQiOiJub25lIiwic2l6ZSI6MS41Nn0sIm1pc2NMaW5lIjp7ImlkIjoibm9uZSJ9LCJmYWNpYWxIYWlyIjp7ImlkIjoibm9uZSJ9LCJleWUiOnsiaWQiOiJleWU5IiwiYW5nbGUiOjJ9LCJleWVicm93Ijp7ImlkIjoiZXllYnJvdzE1IiwiYW5nbGUiOi0xMn0sImhhaXIiOnsiaWQiOiJzaG9ydDMiLCJjb2xvciI6IiNlOWM2N2IiLCJmbGlwIjp0cnVlfSwibW91dGgiOnsiaWQiOiJtb3V0aDUiLCJmbGlwIjp0cnVlfSwibm9zZSI6eyJpZCI6Im5vc2UxMCIsImZsaXAiOnRydWUsInNpemUiOjAuNjh9LCJnbGFzc2VzIjp7ImlkIjoiZ2xhc3NlczEtcHJpbWFyeSJ9LCJhY2Nlc3NvcmllcyI6eyJpZCI6Im5vbmUifX0=">在线 Web 编辑器</a>来设计面孔。</p>
+<p><img src="/../../images/20241115/image.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/zengm-games/facesjs">👉🏻点击查看原文：facesjs</a></p>
+</blockquote>
+<h4 id="每位开发者都应掌握的10个重要终端命令"><a href="#每位开发者都应掌握的10个重要终端命令" class="headerlink" title="每位开发者都应掌握的10个重要终端命令"></a><a target="_blank" rel="noopener" href="https://www.trevorlasn.com/blog/10-essential-terminal-commands-every-developer-should-know">每位开发者都应掌握的10个重要终端命令</a></h4><ol>
+<li>grep：用于在文件中搜索特定模式，类似于功能强大的搜索工具。</li>
+</ol>
+<ul>
+<li>基本用法：grep “pattern” filename</li>
+<li>忽略大小写：grep -i “pattern” filename</li>
+<li>统计匹配行数：grep -c “pattern” filename</li>
+<li>递归搜索：grep -r “pattern” directory&#x2F;</li>
+</ul>
+<ol start="2">
+<li>man：显示其他命令的手册页，提供详细的使用信息。</li>
+</ol>
+<ul>
+<li>用法：man command</li>
+</ul>
+<ol start="3">
+<li>cat：用于显示文件内容、合并文件或创建新文件。</li>
+</ol>
+<ul>
+<li>显示文件内容：cat filename</li>
+<li>合并文件：cat file1 file2 &gt; combined_file</li>
+<li>创建新文件：cat &gt; newfile，输入内容后按 Ctrl+D 保存。</li>
+</ul>
+<ol start="4">
+<li>head：用于查看文件的前几行，默认显示前10行。</li>
+</ol>
+<ul>
+<li>用法：head filename</li>
+<li>指定行数：head -n 5 filename</li>
+</ul>
+<ol start="5">
+<li>awk：强大的文本处理工具，可用于模式扫描和处理，特别适合处理和分析文本文件和数据流。</li>
+<li>sed：用于在文件中执行基本的文本转换，如查找和替换。</li>
+</ol>
+<ul>
+<li>用法：sed ‘s&#x2F;old&#x2F;new&#x2F;g’ filename</li>
+</ul>
+<ol start="7">
+<li>tail：用于查看文件的最后几行，常用于监控日志文件。</li>
+</ol>
+<ul>
+<li>用法：tail filename</li>
+<li>实时监控：tail -f filename</li>
+</ul>
+<ol start="8">
+<li>chmod：用于更改文件或目录的权限。</li>
+</ol>
+<ul>
+<li>用法：chmod 755 filename</li>
+</ul>
+<ol start="9">
+<li>ssh：用于通过安全外壳协议连接到远程服务器。</li>
+</ol>
+<ul>
+<li>用法：ssh user@hostname</li>
+</ul>
+<ol start="10">
+<li>tar：用于创建和解压归档文件。</li>
+</ol>
+<ul>
+<li>创建归档：tar -cvf archive.tar file1 file2</li>
+<li>解压归档：tar -xvf archive.tar<br><img src="/../../images/20241115/image-2.png"></li>
+</ul>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.trevorlasn.com/blog/10-essential-terminal-commands-every-developer-should-know">👉🏻点击查看原文：每位开发者都应掌握的10个重要终端命令</a></p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>前端早读精选：从 web 到 Native 使用 React</p><p><a href="https://xiaotuimao.vercel.app/2025/01/03/2025/0x20250103/">https://xiaotuimao.vercel.app/2025/01/03/2025/0x20250103/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>xiaoTuiMao</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2025-01-03</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2025-01-03</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://xiaotuimao.vercel.app/" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2024/10/09/2024/0x20241009/"><span class="level-item">前端早读精选：ECMAScript 2024 新标准</span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://xiaotuimao.vercel.app/2025/01/03/2025/0x20250103/';
+            this.page.identifier = '2025/01/03/2025/0x20250103/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'xiaotuimao-vercel-app' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/avatar.png" alt="xiaoTuiMao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">xiaoTuiMao</p><p class="is-size-6 is-block">want to travel the word</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>anywhere</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">40</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/xiaoTuiMao" target="_blank" rel="noopener">关注我</a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/H5-%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">H5 开发</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/react/"><span class="level-start"><span class="level-item">react</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="level-start"><span class="level-item">微信小程序</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/"><span class="level-start"><span class="level-item">技术周刊</span></span><span class="level-end"><span class="level-item tag">23</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%B5%8B%E8%AF%95/"><span class="level-start"><span class="level-item">端到端测试</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BF%BB%E8%AF%91/"><span class="level-start"><span class="level-item">翻译</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-01-03T02:11:00.000Z">2025-01-03</time></p><p class="title"><a href="/2025/01/03/2025/0x20250103/">前端早读精选：从 web 到 Native 使用 React</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-09T02:11:00.000Z">2024-10-09</time></p><p class="title"><a href="/2024/10/09/2024/0x20241009/">前端早读精选：ECMAScript 2024 新标准</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-16T02:57:00.000Z">2024-08-16</time></p><p class="title"><a href="/2024/08/16/2024/0x20240816/">掌握SVG：前端早读精选教你绘制任何图形</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-16T02:57:00.000Z">2024-07-16</time></p><p class="title"><a href="/2024/07/16/2024/0x20240716/">前端早读精选 - setTimeout 带来的内存泄漏风险！</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-07-12T02:57:00.000Z">2024-07-12</time></p><p class="title"><a href="/2024/07/12/base/git-rebase/">掌握 Git Rebase：提升代码管理效率的终极指南！</a></p><p class="categories"><a href="/categories/H5-%E5%BC%80%E5%8F%91/">H5 开发</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2025/01/"><span class="level-start"><span class="level-item">一月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">十月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/05/"><span class="level-start"><span class="level-item">五月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">四月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/02/"><span class="level-start"><span class="level-item">二月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/12/"><span class="level-start"><span class="level-item">十二月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2025 xiaoTuiMao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
