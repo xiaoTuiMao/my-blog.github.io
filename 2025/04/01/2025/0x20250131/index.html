@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><meta><title>前端早读精选：React 2025 最佳实践库 - Hexo</title><link rel="manifest" href="/manifest.json"><meta name="application-name" content="Hexo"><meta name="msapplication-TileImage" content="/img/favicon.svg"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="Hexo"><meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="description" content="本周精选内容包括：Chrome DevTools Protocol 的深入解析、JavaScript 长任务处理指南、2025年 React 开发最佳实践库推荐、Web 使用报告分析、JavaScript 生成器详解、Node.js 多线程内存管理、TypeScript 枚举使用建议，以及一些实用的开发工具推荐。"><meta property="og:type" content="blog"><meta property="og:title" content="前端早读精选：React 2025 最佳实践库"><meta property="og:url" content="https://xiaotuimao.vercel.app/2025/04/01/2025/0x20250131/"><meta property="og:site_name" content="Hexo"><meta property="og:description" content="本周精选内容包括：Chrome DevTools Protocol 的深入解析、JavaScript 长任务处理指南、2025年 React 开发最佳实践库推荐、Web 使用报告分析、JavaScript 生成器详解、Node.js 多线程内存管理、TypeScript 枚举使用建议，以及一些实用的开发工具推荐。"><meta property="og:locale" content="zh_CN"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/post-header-bg.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20250131/image.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20250131/JS%20%E5%A4%84%E7%90%86%E9%95%BF%E4%BB%BB%E5%8A%A1.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20250131/image-1.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20250131/image-2.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20250131/image-3.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20250131/image-4.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20250131/image-5.png"><meta property="og:image" content="https://xiaotuimao.vercel.app/images/20250131/image-6.png"><meta property="article:published_time" content="2025-04-01T02:00:00.000Z"><meta property="article:modified_time" content="2025-04-01T02:07:43.406Z"><meta property="article:author" content="xiaoTuiMao"><meta property="twitter:card" content="summary"><meta property="twitter:image:src" content="https://xiaotuimao.vercel.app/images/post-header-bg.png"><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"https://xiaotuimao.vercel.app/2025/04/01/2025/0x20250131/"},"headline":"前端早读精选：React 2025 最佳实践库","image":["https://xiaotuimao.vercel.app/images/post-header-bg.png","https://xiaotuimao.vercel.app/images/20250131/image.png","https://xiaotuimao.vercel.app/images/20250131/JS%20%E5%A4%84%E7%90%86%E9%95%BF%E4%BB%BB%E5%8A%A1.png","https://xiaotuimao.vercel.app/images/20250131/image-1.png","https://xiaotuimao.vercel.app/images/20250131/image-2.png","https://xiaotuimao.vercel.app/images/20250131/image-3.png","https://xiaotuimao.vercel.app/images/20250131/image-4.png","https://xiaotuimao.vercel.app/images/20250131/image-5.png","https://xiaotuimao.vercel.app/images/20250131/image-6.png"],"datePublished":"2025-04-01T02:00:00.000Z","dateModified":"2025-04-01T02:07:43.406Z","author":{"@type":"Person","name":"xiaoTuiMao"},"publisher":{"@type":"Organization","name":"Hexo","logo":{"@type":"ImageObject","url":"https://xiaotuimao.vercel.app/img/logo.svg"}},"description":"本周精选内容包括：Chrome DevTools Protocol 的深入解析、JavaScript 长任务处理指南、2025年 React 开发最佳实践库推荐、Web 使用报告分析、JavaScript 生成器详解、Node.js 多线程内存管理、TypeScript 枚举使用建议，以及一些实用的开发工具推荐。"}</script><link rel="canonical" href="https://xiaotuimao.vercel.app/2025/04/01/2025/0x20250131/"><link rel="icon" href="/img/favicon.svg"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.0.0/css/all.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/atom-one-light.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;600&amp;family=Source+Code+Pro"><link rel="stylesheet" href="/css/default.css"><style>body>.footer,body>.navbar,body>.section{opacity:0}</style><!--!--><!--!--><!--!--><!--!--><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/css/lightgallery.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/css/justifiedGallery.min.css"><!--!--><!--!--><style>.pace{-webkit-pointer-events:none;pointer-events:none;-webkit-user-select:none;-moz-user-select:none;user-select:none}.pace-inactive{display:none}.pace .pace-progress{background:#3273dc;position:fixed;z-index:2000;top:0;right:100%;width:100%;height:2px}</style><script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js"></script><!--!--><!--!--><!-- hexo injector head_end start --><script>
+  (function () {
+      function switchTab() {
+          if (!location.hash) {
+            return;
+          }
+
+          const id = '#' + CSS.escape(location.hash.substring(1));
+          const $tabMenu = document.querySelector(`.tabs a[href="${id}"]`);
+          if (!$tabMenu) {
+            return;
+          }
+
+          const $tabMenuContainer = $tabMenu.parentElement.parentElement;
+          Array.from($tabMenuContainer.children).forEach($menu => $menu.classList.remove('is-active'));
+          Array.from($tabMenuContainer.querySelectorAll('a'))
+              .map($menu => document.getElementById($menu.getAttribute("href").substring(1)))
+              .forEach($content => $content.classList.add('is-hidden'));
+
+          if ($tabMenu) {
+              $tabMenu.parentElement.classList.add('is-active');
+          }
+          const $activeTab = document.querySelector(id);
+          if ($activeTab) {
+              $activeTab.classList.remove('is-hidden');
+          }
+      }
+      switchTab();
+      window.addEventListener('hashchange', switchTab, false);
+  })();
+  </script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.2.0"></head><body class="is-2-column"><nav class="navbar navbar-main"><div class="container navbar-container"><div class="navbar-brand justify-content-center"><a class="navbar-item navbar-logo" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a></div><div class="navbar-menu"><div class="navbar-start"><a class="navbar-item" href="/">Home</a><a class="navbar-item" href="/archives">Archives</a><a class="navbar-item" href="/categories">Categories</a><a class="navbar-item" href="/tags">Tags</a></div><div class="navbar-end"><a class="navbar-item" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a><a class="navbar-item search" title="搜索" href="javascript:;"><i class="fas fa-search"></i></a></div></div></div></nav><section class="section"><div class="container"><div class="columns"><div class="column order-2 column-main is-8-tablet is-8-desktop is-8-widescreen"><div class="card"><article class="card-content article" role="article"><div class="article-meta is-size-7 is-uppercase level is-mobile"><div class="level-left"><span class="level-item"><time dateTime="2025-04-01T02:00:00.000Z" title="4/1/2025, 10:00:00 AM">2025-04-01</time>发表</span><span class="level-item"><time dateTime="2025-04-01T02:07:43.406Z" title="4/1/2025, 10:07:43 AM">2025-04-01</time>更新</span><span class="level-item"><a class="link-muted" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></span><span class="level-item">18 分钟读完 (大约2628个字)</span></div></div><h1 class="title is-3 is-size-4-mobile">前端早读精选：React 2025 最佳实践库</h1><div class="content"><p><img src="/../../images/post-header-bg.png"></p>
+<blockquote>
+<p>探索前端技术的无尽旅程从这里开始！每周精选前端领域的热门文章。</p>
+<ul>
+<li>**<code>JS 文章推荐</code>**：Chrome DevTools Protocol 深入解析、JavaScript 长任务处理指南、2025年 React 开发最佳实践库推荐、Web 使用报告分析、JavaScript 生成器详解</li>
+<li>**<code>NodeJS 文章推荐</code>**：Node.js 多线程内存管理、TypeScript 枚举使用建议</li>
+<li>**<code>工具推荐</code>**：Electron App Boilerplate、uvCanvas 画布库、JS 书签工具</li>
+</ul>
+<p><strong>如果觉得有收获，欢迎大家点赞👍🏻订阅</strong></p>
+</blockquote>
+<h3 id="2025-React-开发最佳实践库"><a href="#2025-React-开发最佳实践库" class="headerlink" title="2025 React 开发最佳实践库"></a><a target="_blank" rel="noopener" href="https://www.robinwieruch.de/react-libraries/">2025 React 开发最佳实践库</a></h3><p>本文介绍了在 2025 年开发 React 应用时推荐使用的库和工具，涵盖从项目启动到部署的各个方面。作者针对不同的使用场景，列举了当前最佳的库和工具，以提升开发效率、优化性能并简化代码管理。</p>
+<h3 id="React-开发最佳实践库（2025）"><a href="#React-开发最佳实践库（2025）" class="headerlink" title="React 开发最佳实践库（2025）"></a><strong>React 开发最佳实践库（2025）</strong></h3><table>
+<thead>
+<tr>
+<th><strong>类别</strong></th>
+<th><strong>推荐工具</strong></th>
+<th><strong>说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>项目启动</strong></td>
+<td>Vite</td>
+<td>适用于客户端渲染 (CSR)，提供快速构建和热更新。</td>
+</tr>
+<tr>
+<td></td>
+<td>Next.js</td>
+<td>适用于服务端渲染 (SSR) 和静态站点生成 (SSG)，内置文件路由和 API 路由。</td>
+</tr>
+<tr>
+<td></td>
+<td>Astro</td>
+<td>适用于内容驱动型项目，仅在需要时加载 JavaScript，提高性能。</td>
+</tr>
+<tr>
+<td><strong>包管理器</strong></td>
+<td>pnpm</td>
+<td>高效节省磁盘空间，提升安装速度。</td>
+</tr>
+<tr>
+<td><strong>状态管理</strong></td>
+<td>Zustand</td>
+<td>轻量级状态管理库，基于 hooks API。</td>
+</tr>
+<tr>
+<td><strong>数据获取</strong></td>
+<td>TanStack Query</td>
+<td>服务器状态管理，提供缓存、数据同步和自动重验证。</td>
+</tr>
+<tr>
+<td><strong>路由</strong></td>
+<td>React Router</td>
+<td>最常用的 React 路由库，支持动态路由和嵌套路由。</td>
+</tr>
+<tr>
+<td></td>
+<td>Next.js 路由</td>
+<td>Next.js 内置文件系统路由，适用于 SSR&#x2F;SSG 应用。</td>
+</tr>
+<tr>
+<td><strong>样式方案</strong></td>
+<td>Tailwind CSS</td>
+<td>基于实用类的 CSS 框架，提高开发效率。</td>
+</tr>
+<tr>
+<td></td>
+<td>CSS Modules</td>
+<td>局部作用域的 CSS 方案，适用于组件化开发。</td>
+</tr>
+<tr>
+<td></td>
+<td>Styled Components</td>
+<td>CSS-in-JS 方案，支持动态样式和主题切换。</td>
+</tr>
+<tr>
+<td><strong>UI 组件库</strong></td>
+<td>Shadcn&#x2F;UI</td>
+<td>2024 最受欢迎的 Headless UI 库</td>
+</tr>
+<tr>
+<td></td>
+<td>Material-UI</td>
+<td>基于 Google Material Design 规范的组件库。最受自由职业喜爱的 UI 库</td>
+</tr>
+<tr>
+<td><strong>动画</strong></td>
+<td>Motion</td>
+<td>强大且易用的动画库，支持手势和物理效果。</td>
+</tr>
+<tr>
+<td></td>
+<td>React Spring</td>
+<td>基于弹簧物理的动画库，适合创建流畅的交互。</td>
+</tr>
+<tr>
+<td><strong>数据可视化</strong></td>
+<td>Recharts</td>
+<td>基于 React 组件的简单易用图表库。</td>
+</tr>
+<tr>
+<td></td>
+<td>Visx</td>
+<td>一组可重复使用的低级可视化组件</td>
+</tr>
+<tr>
+<td><strong>表单处理</strong></td>
+<td>React Hook Form</td>
+<td>轻量且性能优越的表单库，基于 React Hooks。</td>
+</tr>
+<tr>
+<td><strong>代码结构</strong></td>
+<td>ESLint + Prettier</td>
+<td>最常用的代码规范</td>
+</tr>
+<tr>
+<td></td>
+<td>Biome</td>
+<td>基于 Rust 一体化工具链。可尝试性了解</td>
+</tr>
+<tr>
+<td><strong>测试</strong></td>
+<td>Vitest + React 测试库</td>
+<td>当下最流行的单元测试解决方案</td>
+</tr>
+<tr>
+<td></td>
+<td>Playwright</td>
+<td>E2E 测试选择</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.robinwieruch.de/react-libraries/">👉🏻点击查看原文：2025 React 开发最佳实践库</a></p>
+</blockquote>
+<h3 id="朋友们，一起学习下-Chrome-DevTools-Protocol"><a href="#朋友们，一起学习下-Chrome-DevTools-Protocol" class="headerlink" title="朋友们，一起学习下 Chrome DevTools Protocol"></a><a target="_blank" rel="noopener" href="https://juejin.cn/post/7132692693993406494">朋友们，一起学习下 Chrome DevTools Protocol</a></h3><p>该文章介绍了 Chrome DevTools Protocol (CDP)，从调试的起源开始，回顾了浏览器调试工具的发展历史，例如 Web Inspector 和 Firebug。随后详细解析了 Chrome DevTools 的架构，包括前端、后端、协议及消息通道，并聚焦于核心部分——CDP 协议，展示其 JSON 格式数据的定义及应用场景。文章通过示例说明 CDP 的灵活性及其对开发者的重要性，帮助理解前端调试工具的设计和实现。<br><img src="/../../images/20250131/image.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/7132692693993406494">👉🏻点击查看原文：朋友们，一起学习下 Chrome DevTools Protocol</a></p>
+</blockquote>
+<h3 id="JavaScript-处理长任务指南"><a href="#JavaScript-处理长任务指南" class="headerlink" title="JavaScript 处理长任务指南"></a><a target="_blank" rel="noopener" href="https://macarthur.me/posts/long-tasks/">JavaScript 处理长任务指南</a></h3><p>这篇文章主要讨论了如何通过优化JavaScript代码来减少长任务（Long Tasks），从而提升网页性能。以下是文章中提到的几种方法的简要概括：</p>
+<p><img src="/../../images/20250131/JS%20%E5%A4%84%E7%90%86%E9%95%BF%E4%BB%BB%E5%8A%A1.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://macarthur.me/posts/long-tasks/">👉🏻点击查看原文：JavaScript 处理长任务指南</a></p>
+</blockquote>
+<h4 id="Web-使用报告"><a href="#Web-使用报告" class="headerlink" title="Web 使用报告"></a><a target="_blank" rel="noopener" href="https://almanac.httparchive.org/en/2024/javascript">Web 使用报告</a></h4><p>《2024 Web Almanac》中的 JavaScript 章节深入探讨了 JavaScript 在现代 Web 开发中的使用情况，强调了其在创建交互式 Web 体验中的关键作用，同时也指出了过度使用可能导致的性能问题。</p>
+<table>
+<thead>
+<tr>
+<th><strong>类别</strong></th>
+<th><strong>趋势</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>JavaScript 使用量</strong></td>
+<td>- 桌面端中位数从 2019 年 391KB 增至 2024 年 613KB<br>- 移动端中位数从 359KB 增至 558KB</td>
+</tr>
+<tr>
+<td><strong>请求数量</strong></td>
+<td>- 2024 年移动端中位数 22 次请求，90 百分位达 68 次</td>
+</tr>
+<tr>
+<td><strong>未使用代码</strong></td>
+<td>- 移动端中位数 206KB 未使用(占 44%)</td>
+</tr>
+<tr>
+<td><strong>打包工具</strong></td>
+<td>- Webpack 保持 5% 采用率，顶级站点使用下降<br>- Parcel 使用率从 1.3% 降至 0.3%</td>
+</tr>
+<tr>
+<td><strong>转译工具</strong></td>
+<td>- Babel 在顶级移动站点达 12%<br>- TypeScript 整体采用率约 6%</td>
+</tr>
+<tr>
+<td><strong>加载策略</strong></td>
+<td>- async 使用率 87%<br>- defer 达 47%<br>- module 仅 4%</td>
+</tr>
+<tr>
+<td><strong>资源提示</strong></td>
+<td>- preload 使用率 7.5%<br>- prefetch 达 4.8%<br>- modulepreload 0.7%</td>
+</tr>
+<tr>
+<td><strong>脚本注入</strong></td>
+<td>- 中位数 21% 脚本通过注入加载</td>
+</tr>
+<tr>
+<td><strong>第三方代码</strong></td>
+<td>- 90 百分位第三方请求 36 次<br>- 第三方字节占比高(移动 90 百分位 1,292KB)</td>
+</tr>
+<tr>
+<td><strong>新技术采用</strong></td>
+<td>- 动态导入使用率从 0.34% 增至 3.7%<br>- Web Workers 采用率从 12% 升至 30%</td>
+</tr>
+<tr>
+<td><strong>压缩技术</strong></td>
+<td>- Brotli 占比 45% 超越 gzip(41%)<br>- 第三方脚本仍多用 gzip(60%)</td>
+</tr>
+</tbody></table>
+<p><img src="/../../images/20250131/image-1.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://almanac.httparchive.org/en/2024/javascript">👉🏻点击查看原文：Web 使用报告</a></p>
+</blockquote>
+<h3 id="理解-JS-中的-generators"><a href="#理解-JS-中的-generators" class="headerlink" title="理解 JS 中的 generators"></a><a target="_blank" rel="noopener" href="https://www.reactsquad.io/blog/understanding-generators-in-javascript">理解 JS 中的 generators</a></h3><p>这篇文章深入探讨了 JavaScript 中的生成器（generators），强调其作为”pull streams”的特性，并详细阐述了其适用场景。作者首先区分了”push streams”和”pull streams”，指出前者的数据传递由外部控制，如 WebSocket、从磁盘读取文件和服务器发送事件等；而后者的数据获取由内部控制，即消费者决定何时获取数据。生成器正是实现”pull streams”的工具，它允许函数的执行被暂停和恢复，从而在需要时生成数据。文章还讨论了惰性（lazy）和急切（eager）求值的概念，强调生成器采用惰性求值，仅在需要时才计算值。在适用场景方面，作者列举了生成器的三个主要用途：惰性求值（按需生成或处理大型或无限的数据集）、异步编程（处理异步操作）和迭代器（允许在复杂流程中暂停和恢复执行）。通过这些特性，生成器为 JavaScript 开发者提供了强大的工具，以更灵活地控制数据流和流程管理。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 核心在于处理 yield</span></span><br><span class="line"><span class="keyword">function</span>* <span class="title function_">moreNumbers</span>(<span class="params">x</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;x&#x27;</span>, x);</span><br><span class="line">    <span class="keyword">const</span> y = <span class="keyword">yield</span> x + <span class="number">2</span>;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;y&#x27;</span>, y);</span><br><span class="line">    <span class="keyword">const</span> z = <span class="keyword">yield</span> x + y;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;z&#x27;</span>, z);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> it2 = <span class="title function_">moreNumbers</span>(<span class="number">40</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行输出 x，并执行 yield x+2 即 返回 &#123; value: 42, done: false &#125; y 并没有被赋值</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(it2.<span class="title function_">next</span>());</span><br><span class="line"><span class="comment">// 传入 2012 赋值给上一次处理的值，相当于把 (yield x+2) 从 42 改为 2012，即把 y 赋值为 2012后，再输出 y，输出 2012，执行 yield x + y，则返回值为  &#123; value: 2052, done: false&#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(it2.<span class="title function_">next</span>(<span class="number">2012</span>));</span><br><span class="line"><span class="comment">// 同理，z 被赋值，但是由于传入的为 undefined，则输出为 &#123; value: undefined, done: false &#125;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(it2.<span class="title function_">next</span>());</span><br></pre></td></tr></table></figure>
+
+<p><img src="/../../images/20250131/image-2.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.reactsquad.io/blog/understanding-generators-in-javascript">👉🏻点击查看原文：理解 JS 中的 generators</a></p>
+</blockquote>
+<h3 id="如何管理-NodeJS-中多线程内存"><a href="#如何管理-NodeJS-中多线程内存" class="headerlink" title="如何管理 NodeJS 中多线程内存"></a><a target="_blank" rel="noopener" href="https://pavel-romanov.com/multithreading-in-nodejs-using-atomics-for-safe-shared-memory-operations">如何管理 NodeJS 中多线程内存</a></h3><p>在 Node.js 多线程环境中，数据共享的主要问题 在于竞态条件（Race Condition）和数据一致性。由于多个 Worker 线程可以通过 SharedArrayBuffer 访问共享内存，<br>并发读写 可能导致数据不一致，尤其是在多个线程同时修改某个值时，可能出现覆盖、丢失更新等问题。为了解决这些问题，文章提出了 两种解决方案：<br>第一，使用 Atomics API（如 Atomics.add、Atomics.compareExchange），确保对共享内存的操作是 原子的，避免多个线程同时修改数据时引发的不确定行为；<br>第二，构建 同步原语（Semaphore 和 Mutex），通过 等待、锁机制 控制多个线程对共享资源的访问，类似于 Golang 的 WaitGroup、Mutex，确保线程按照安全的顺序访问数据，从而保证数据一致性和线程安全。</p>
+<p><img src="/../../images/20250131/image-3.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://pavel-romanov.com/multithreading-in-nodejs-using-atomics-for-safe-shared-memory-operations">👉🏻点击查看原文：如何管理 NodeJS 中多线程内存</a></p>
+</blockquote>
+<h3 id="不要用-TypeScript-的枚举"><a href="#不要用-TypeScript-的枚举" class="headerlink" title="不要用 TypeScript 的枚举"></a><a target="_blank" rel="noopener" href="https://blog.disintegrator.dev/posts/ode-to-typescript-enums/">不要用 TypeScript 的枚举</a></h3><p>NodeJS 23 发布了，新版本与 Bun 和 Deno 一样，支持直接运行 TypeScript，不再需要二次编译。<br>但是对 TS 的特有语法存在限制，例如枚举与namespace。因为它们会被转译为 JavaScript 对象。<br>因此，TypeScript 团队通过新的编译器标志 –erasableSyntaxOnly，通过禁用这些属性，帮助用户更好的在 Node 环境下运行 TS。</p>
+<blockquote>
+<p>附：关于社区内反对 TS 枚举类型的文章，<a target="_blank" rel="noopener" href="https://www.totaltypescript.com/why-i-dont-like-typescript-enums">https://www.totaltypescript.com/why-i-dont-like-typescript-enums</a></p>
+</blockquote>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.disintegrator.dev/posts/ode-to-typescript-enums/">👉🏻点击查看原文：不要用 TypeScript 的枚举</a></p>
+</blockquote>
+<h3 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h3><h4 id="Electron-App-Boilerplate-with-Modern-Dependencies"><a href="#Electron-App-Boilerplate-with-Modern-Dependencies" class="headerlink" title="Electron App Boilerplate with Modern Dependencies"></a><a target="_blank" rel="noopener" href="https://github.com/daltonmenezes/electron-app">Electron App Boilerplate with Modern Dependencies</a></h4><p>一个使用 React 19、Tailwind CSS 4、shadcn&#x2F;ui、Electron Vite、Biome 等现代依赖项的基本模板应用程序，<br>并包括 GitHub Actions 发布工作流程。</p>
+<p><img src="/../../images/20250131/image-4.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://github.com/daltonmenezes/electron-app">👉🏻点击查看原文：Electron App Boilerplate with Modern Dependencies</a></p>
+</blockquote>
+<h3 id="uvCanvas"><a href="#uvCanvas" class="headerlink" title="uvCanvas"></a><a target="_blank" rel="noopener" href="https://uvcanvas.com/docs">uvCanvas</a></h3><p>一个受到 shadcn&#x2F;ui、airbnb&#x2F;visx、Squarespace、Apple Keynote 的启发，画布库 – UVCanvas。提供丰富的动态画布集合。这些画布非常适合用作网页背景、壁纸和设计素材。</p>
+<p><img src="/../../images/20250131/image-5.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://uvcanvas.com/docs">👉🏻点击查看原文：uvCanvas</a></p>
+</blockquote>
+<h3 id="JS-书签"><a href="#JS-书签" class="headerlink" title="JS 书签"></a><a target="_blank" rel="noopener" href="https://make-bookmarklets.com/">JS 书签</a></h3><p>存储在书签 URL 中的微小 JavaScript 应用程序。单击书签将启动它，以便您可以自定义和扩展您的浏览体验。</p>
+<p><img src="/../../images/20250131/image-6.png"></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://make-bookmarklets.com/">👉🏻点击查看原文：JS 书签</a></p>
+</blockquote>
+</div><div class="article-licensing box"><div class="licensing-title"><p>前端早读精选：React 2025 最佳实践库</p><p><a href="https://xiaotuimao.vercel.app/2025/04/01/2025/0x20250131/">https://xiaotuimao.vercel.app/2025/04/01/2025/0x20250131/</a></p></div><div class="licensing-meta level is-mobile"><div class="level-left"><div class="level-item is-narrow"><div><h6>作者</h6><p>xiaoTuiMao</p></div></div><div class="level-item is-narrow"><div><h6>发布于</h6><p>2025-04-01</p></div></div><div class="level-item is-narrow"><div><h6>更新于</h6><p>2025-04-01</p></div></div><div class="level-item is-narrow"><div><h6>许可协议</h6><p><a class="icons" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="icon fab fa-creative-commons"></i></a><a class="icons" rel="noopener" target="_blank" title="Attribution" href="https://creativecommons.org/licenses/by/4.0/"><i class="icon fab fa-creative-commons-by"></i></a><a class="icons" rel="noopener" target="_blank" title="Noncommercial" href="https://creativecommons.org/licenses/by-nc/4.0/"><i class="icon fab fa-creative-commons-nc"></i></a></p></div></div></div></div></div><div class="sharethis-inline-share-buttons"></div><script src="https://xiaotuimao.vercel.app/" defer></script></article></div><!--!--><nav class="post-navigation mt-4 level is-mobile"><div class="level-end"><a class="article-nav-next level level-item link-muted" href="/2025/03/11/react/react-query/"><span class="level-item"> </span><i class="level-item fas fa-chevron-right"></i></a></div></nav><div class="card"><div class="card-content"><h3 class="title is-5">评论</h3><div id="disqus_thread"><noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div><script>var disqus_config = function () {
+            this.page.url = 'https://xiaotuimao.vercel.app/2025/04/01/2025/0x20250131/';
+            this.page.identifier = '2025/04/01/2025/0x20250131/';
+        };
+        (function() {
+            var d = document, s = d.createElement('script');  
+            s.src = '//' + 'xiaotuimao-vercel-app' + '.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();</script></div></div></div><div class="column column-left is-4-tablet is-4-desktop is-4-widescreen  order-1"><div class="card widget" data-type="profile"><div class="card-content"><nav class="level"><div class="level-item has-text-centered flex-shrink-1"><div><figure class="image is-128x128 mx-auto mb-2"><img class="avatar" src="/images/avatar.png" alt="xiaoTuiMao"></figure><p class="title is-size-4 is-block" style="line-height:inherit;">xiaoTuiMao</p><p class="is-size-6 is-block">want to travel the word</p><p class="is-size-6 is-flex justify-content-center"><i class="fas fa-map-marker-alt mr-1"></i><span>anywhere</span></p></div></div></nav><nav class="level is-mobile"><div class="level-item has-text-centered is-marginless"><div><p class="heading">文章</p><a href="/archives"><p class="title">43</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">分类</p><a href="/categories"><p class="title">6</p></a></div></div><div class="level-item has-text-centered is-marginless"><div><p class="heading">标签</p><a href="/tags"><p class="title">0</p></a></div></div></nav><div class="level"><a class="level-item button is-primary is-rounded" href="https://github.com/xiaoTuiMao" target="_blank" rel="noopener">关注我</a></div></div></div><!--!--><div class="card widget" data-type="categories"><div class="card-content"><div class="menu"><h3 class="menu-label">分类</h3><ul class="menu-list"><li><a class="level is-mobile" href="/categories/H5-%E5%BC%80%E5%8F%91/"><span class="level-start"><span class="level-item">H5 开发</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/categories/react/"><span class="level-start"><span class="level-item">react</span></span><span class="level-end"><span class="level-item tag">7</span></span></a></li><li><a class="level is-mobile" href="/categories/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/"><span class="level-start"><span class="level-item">微信小程序</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/"><span class="level-start"><span class="level-item">技术周刊</span></span><span class="level-end"><span class="level-item tag">24</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%AB%AF%E5%88%B0%E7%AB%AF%E6%B5%8B%E8%AF%95/"><span class="level-start"><span class="level-item">端到端测试</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/categories/%E7%BF%BB%E8%AF%91/"><span class="level-start"><span class="level-item">翻译</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li></ul></div></div></div><div class="card widget" data-type="recent-posts"><div class="card-content"><h3 class="menu-label">最新文章</h3><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-04-01T02:00:00.000Z">2025-04-01</time></p><p class="title"><a href="/2025/04/01/2025/0x20250131/">前端早读精选：React 2025 最佳实践库</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-03-11T01:48:12.459Z">2025-03-11</time></p><p class="title"><a href="/2025/03/11/react/react-query/"> </a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2025-01-03T02:11:00.000Z">2025-01-03</time></p><p class="title"><a href="/2025/01/03/2025/0x20250103/">前端早读精选：从 web 到 Native 使用 React</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-10-09T02:11:00.000Z">2024-10-09</time></p><p class="title"><a href="/2024/10/09/2024/0x20241009/">前端早读精选：ECMAScript 2024 新标准</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article><article class="media"><div class="media-content"><p class="date"><time dateTime="2024-08-16T02:57:00.000Z">2024-08-16</time></p><p class="title"><a href="/2024/08/16/2024/0x20240816/">掌握SVG：前端早读精选教你绘制任何图形</a></p><p class="categories"><a href="/categories/%E6%8A%80%E6%9C%AF%E5%91%A8%E5%88%8A/">技术周刊</a></p></div></article></div></div><div class="card widget" data-type="archives"><div class="card-content"><div class="menu"><h3 class="menu-label">归档</h3><ul class="menu-list"><li><a class="level is-mobile" href="/archives/2025/04/"><span class="level-start"><span class="level-item">四月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/03/"><span class="level-start"><span class="level-item">三月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2025/01/"><span class="level-start"><span class="level-item">一月 2025</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/10/"><span class="level-start"><span class="level-item">十月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/08/"><span class="level-start"><span class="level-item">八月 2024</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/07/"><span class="level-start"><span class="level-item">七月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/06/"><span class="level-start"><span class="level-item">六月 2024</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/05/"><span class="level-start"><span class="level-item">五月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/04/"><span class="level-start"><span class="level-item">四月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/03/"><span class="level-start"><span class="level-item">三月 2024</span></span><span class="level-end"><span class="level-item tag">6</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/02/"><span class="level-start"><span class="level-item">二月 2024</span></span><span class="level-end"><span class="level-item tag">2</span></span></a></li><li><a class="level is-mobile" href="/archives/2024/01/"><span class="level-start"><span class="level-item">一月 2024</span></span><span class="level-end"><span class="level-item tag">4</span></span></a></li><li><a class="level is-mobile" href="/archives/2023/12/"><span class="level-start"><span class="level-item">十二月 2023</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2022/12/"><span class="level-start"><span class="level-item">十二月 2022</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/04/"><span class="level-start"><span class="level-item">四月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/03/"><span class="level-start"><span class="level-item">三月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/02/"><span class="level-start"><span class="level-item">二月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2020/01/"><span class="level-start"><span class="level-item">一月 2020</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/12/"><span class="level-start"><span class="level-item">十二月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/10/"><span class="level-start"><span class="level-item">十月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/09/"><span class="level-start"><span class="level-item">九月 2019</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li><li><a class="level is-mobile" href="/archives/2019/08/"><span class="level-start"><span class="level-item">八月 2019</span></span><span class="level-end"><span class="level-item tag">3</span></span></a></li><li><a class="level is-mobile" href="/archives/2018/12/"><span class="level-start"><span class="level-item">十二月 2018</span></span><span class="level-end"><span class="level-item tag">1</span></span></a></li></ul></div></div></div><!--!--><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">订阅更新</h3><form action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open(&#039;https://feedburner.google.com/fb/a/mailverify?uri=&#039;,&#039;popupwindow&#039;,&#039;scrollbars=yes,width=550,height=520&#039;);return true"><input type="hidden" value="" name="uri"><input type="hidden" name="loc" value="en_US"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div><div class="card widget" data-type="subscribe-email"><div class="card-content"><div class="menu"><h3 class="menu-label">follow.it</h3><form action="" method="post" target="_blank"><div class="field has-addons"><div class="control has-icons-left is-expanded"><input class="input" name="email" type="email" placeholder="Email"><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div><div class="control"><input class="button" type="submit" value="订阅"></div></div></form></div></div></div></div><!--!--></div></div></section><footer class="footer"><div class="container"><div class="level"><div class="level-start"><a class="footer-logo is-block mb-2" href="/"><img src="/img/logo.svg" alt="Hexo" height="28"></a><p class="is-size-7"><span>&copy; 2025 xiaoTuiMao</span>  Powered by <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a> &amp; <a href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank" rel="noopener">Icarus</a></p><p class="is-size-7">© 2019</p></div><div class="level-end"><div class="field has-addons"><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Attribution 4.0 International" href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons-by"></i></a></p><p class="control"><a class="button is-transparent is-large" target="_blank" rel="noopener" title="Download on GitHub" href="https://github.com/ppoffice/hexo-theme-icarus"><i class="fab fa-github"></i></a></p></div></div></div></div></footer><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script><script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script><script>moment.locale("zh-cn");</script><script>var IcarusThemeSettings = {
+            article: {
+                highlight: {
+                    clipboard: true,
+                    fold: 'unfolded'
+                }
+            }
+        };</script><script src="/js/column.js"></script><script src="/js/animation.js"></script><a id="back-to-top" title="回到顶端" href="javascript:;"><i class="fas fa-chevron-up"></i></a><script src="/js/back_to_top.js" defer></script><!--!--><!--!--><!--!--><script src="https://cdn.jsdelivr.net/npm/cookieconsent@3.1.1/build/cookieconsent.min.js" defer></script><script>window.addEventListener("load", () => {
+      window.cookieconsent.initialise({
+        type: "info",
+        theme: "edgeless",
+        static: false,
+        position: "bottom-left",
+        content: {
+          message: "此网站使用Cookie来改善您的体验。",
+          dismiss: "知道了！",
+          allow: "允许使用Cookie",
+          deny: "拒绝",
+          link: "了解更多",
+          policy: "Cookie政策",
+          href: "https://www.cookiesandyou.com/",
+        },
+        palette: {
+          popup: {
+            background: "#edeff5",
+            text: "#838391"
+          },
+          button: {
+            background: "#4b81e8"
+          },
+        },
+      });
+    });</script><script src="https://cdn.jsdelivr.net/npm/lightgallery@1.10.0/dist/js/lightgallery.min.js" defer></script><script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.8.1/dist/js/jquery.justifiedGallery.min.js" defer></script><script>window.addEventListener("load", () => {
+            if (typeof $.fn.lightGallery === 'function') {
+                $('.article').lightGallery({ selector: '.gallery-item' });
+            }
+            if (typeof $.fn.justifiedGallery === 'function') {
+                if ($('.justified-gallery > p > .gallery-item').length) {
+                    $('.justified-gallery > p > .gallery-item').unwrap();
+                }
+                $('.justified-gallery').justifiedGallery();
+            }
+        });</script><!--!--><!--!--><!--!--><!--!--><!--!--><script src="/js/main.js" defer></script><div class="searchbox"><div class="searchbox-container"><div class="searchbox-header"><div class="searchbox-input-container"><input class="searchbox-input" type="text" placeholder="想要查找什么..."></div><a class="searchbox-close" href="javascript:;">×</a></div><div class="searchbox-body"></div></div></div><script src="/js/insight.js" defer></script><script>document.addEventListener('DOMContentLoaded', function () {
+            loadInsight({"contentUrl":"/content.json"}, {"hint":"想要查找什么...","untitled":"(无标题)","posts":"文章","pages":"页面","categories":"分类","tags":"标签"});
+        });</script></body></html>
